@@ -4,7 +4,7 @@ import {ModalHostService} from './modal-host.service';
 import {ModalConfig} from './util/modal-config';
 import {ModalContent} from './util/modal-content';
 import {ModalRef} from './util/modal-ref';
-import {ConfirmModalData, ExtraOptions, ExtraOptionsResult} from './util/confirm';
+import {ConfirmModalData} from './util/confirm';
 
 @Injectable()
 export class NgbModalsService {
@@ -29,25 +29,22 @@ export class NgbModalsService {
    * Confirm a user action
    *
    * @param message (HTML or text) The message to display
-   * @param extraOptions A Record<[option name], [option label]>
    * @param confirm Custom confirm button label, defaults to "Yes"
    * @param cancel Custom cancel button label, defaults to "Cancel"
    * @return A Record<[option name], boolean>, reflecting the extraOptions parameter and the user's input per option
    */
-  public confirm<T extends ExtraOptions = {}>(
+  public confirm(
     message: string,
-    extraOptions: T = {} as T,
     confirm?: string,
     cancel?: string
-  ): ModalRef<never, ExtraOptionsResult<T>> {
+  ): ModalRef<never> {
     // @ts-ignore
     return this.open(ConfirmModalComponent, {
       data: {
         message,
-        extraOptions,
         confirmLabel: confirm,
         cancelLabel: cancel
-      } as ConfirmModalData<T>
+      } as ConfirmModalData
     });
   }
 

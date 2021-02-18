@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build:modals": "ng build modals --prod",
+    "publish": "cd dist/modals && yarn publish"
   },
   "private": true,
   "dependencies": {
