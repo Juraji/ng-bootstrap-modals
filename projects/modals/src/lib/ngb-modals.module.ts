@@ -7,21 +7,25 @@ import {ModalHostWindowComponent} from './components/modal-host-window.component
 import {NgbModalsService} from './ngb-modals.service';
 import {ModalHostService} from './modal-host.service';
 import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
-import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG} from './util/modal-config';
+import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, ModalConfig} from './util/modal-config';
 import {AutoFocusDirective} from './components/auto-focus.directive';
 
 @NgModule({
   imports: [CommonModule],
   declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent, AutoFocusDirective],
   exports: [AutoFocusDirective],
-  providers: [NgbModalsService, {provide: MODAL_CONFIG, useValue: DEFAULT_MODAL_CONFIG}],
+  providers: [NgbModalsService],
   entryComponents: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent]
 })
 export class NgbModalsModule {
-  public static forRoot(): ModuleWithProviders<NgbModalsModule> {
+  public static forRoot(config?: ModalConfig): ModuleWithProviders<NgbModalsModule> {
     return {
       ngModule: NgbModalsModule,
-      providers: [ModalHostService, ScrollBarAdjustService]
+      providers: [
+        ModalHostService,
+        ScrollBarAdjustService,
+        {provide: MODAL_CONFIG, useValue: config || DEFAULT_MODAL_CONFIG}
+      ]
     };
   }
 }
