@@ -23,7 +23,7 @@ jobs:
       - name: Build package
         run: npx ng build modals --prod
       - name: Publish package
-        run: yarn publish --non-interactive --new-version ${{ github.event.inputs.newVersion }}
+        run: cd dist/modals && yarn publish --non-interactive --new-version ${{ github.event.inputs.newVersion }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
