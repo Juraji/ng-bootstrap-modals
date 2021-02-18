@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Build package
-        run: ng build modals --prod
+        run: npx ng build modals --prod
       - name: Publish package
         run: yarn publish --non-interactive --new-version ${{ github.event.inputs.newVersion }}
         env:
