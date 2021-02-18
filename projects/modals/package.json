@@ -1,0 +1,13 @@
+{
+  "name": "ng-bootstrap-modals",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^11.2.1",
+    "@angular/core": "^11.2.1",
+    "@angular/animations": "^11.2.1",
+    "bootstrap": "~4.5.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

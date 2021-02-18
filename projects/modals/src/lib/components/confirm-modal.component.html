@@ -1,0 +1,24 @@
+<form (submit)="confirm($event)">
+  <div class="modal-header">
+    <h5 class="modal-title" i18n="@@modals-confirm-modal-title">Confirm</h5>
+  </div>
+  <div class="modal-body" [innerHTML]="confirmData.message"></div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary mr-1" ngbModalAutoFocus>
+      <ng-container *ngIf="!!confirmData.confirmLabel; else defaultConfirmLabel">
+        {{ confirmData.confirmLabel }}
+      </ng-container>
+      <ng-template #defaultConfirmLabel>
+        <ng-container i18n="@@modals-default-confirm-label">Yes</ng-container>
+      </ng-template>
+    </button>
+    <button type="button" class="btn btn-default" (click)="cancel()">
+      <ng-container *ngIf="!!confirmData.confirmLabel; else defaultCancelLabel">
+        {{ confirmData.cancelLabel }}
+      </ng-container>
+      <ng-template #defaultCancelLabel>
+        <ng-container i18n="@@modals-default-cancel-label">Cancel</ng-container>
+      </ng-template>
+    </button>
+  </div>
+</form>
