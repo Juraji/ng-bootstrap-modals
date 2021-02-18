@@ -1,10 +1,10 @@
-name: Build npm module
+name: Build and publish npm module
 
 on:
   workflow_dispatch:
     inputs:
       newVersion:
-        description: New version
+        description: 'New version'
         required: true
 
 jobs:
@@ -13,17 +13,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
+      - name: 'Use Node.js 12.x'
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
-      - name: Install dependencies
+          scope: '@juraji'
+      - name: 'Install dependencies'
         run: yarn --frozen-lockfile
-      - name: Build package
+      - name: 'Build package'
         run: npx ng build modals --prod
-      - name: Publish package
-        run: cd dist/modals && yarn publish --non-interactive --new-version ${{ github.event.inputs.newVersion }}
+      - name: 'Publish package'
+        run: cd dist/modals && yarn publish --new-version ${{ github.event.inputs.newVersion }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
