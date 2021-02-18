@@ -1,8 +1,11 @@
 name: Build npm module
 
 on:
-  push:
-    branches: [ $default-branch ]
+  workflow_dispatch:
+    inputs:
+      newVersion:
+        description: New version
+        required: true
 
 jobs:
   build:
@@ -20,7 +23,7 @@ jobs:
       - name: Build package
         run: ng build modals --prod
       - name: Publish package
-        run: yarn publish --non-interactive
+        run: yarn publish --non-interactive --new-version ${{ github.event.inputs.newVersion }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
