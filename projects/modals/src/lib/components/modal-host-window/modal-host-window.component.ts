@@ -23,7 +23,7 @@ import {filter, takeUntil} from 'rxjs/operators';
 import {MODAL_HOST_FADE_ANIMATION} from '../../animations/modal-host-fade.animation';
 import {buildClassList} from '../../util/build-class-list';
 import {getFocusableBoundaryElements} from '../../util/focus-trap';
-import {Key} from '../../util/key';
+import {KEY_ESCAPE} from '../../util/key';
 
 export const MODAL_HOST_WINDOW_PROPS: (keyof ModalHostWindowComponent)[] = [
   'size',
@@ -75,7 +75,7 @@ export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChange
       fromEvent<KeyboardEvent>(this.elementRef.nativeElement, 'keyup')
         .pipe(
           takeUntil(this.dismissed),
-          filter(e => e.key === Key.ESCAPE)
+          filter(e => e.key === KEY_ESCAPE)
         )
         .subscribe(e =>
           requestAnimationFrame(() => {

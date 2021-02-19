@@ -1,7 +1,6 @@
 import {fromEvent, Observable} from 'rxjs';
 import {filter, map, takeUntil, withLatestFrom} from 'rxjs/operators';
-
-import {Key} from './key';
+import {KEY_TAB} from './key';
 
 const FOCUSABLE_ELEMENTS_SELECTOR = [
   'a[href]',
@@ -13,14 +12,14 @@ const FOCUSABLE_ELEMENTS_SELECTOR = [
   '[tabindex]:not([tabindex=\'-1\'])'
 ].join(', ');
 
-export function getFocusableBoundaryElements(element: HTMLElement): HTMLElement[] {
+export const getFocusableBoundaryElements = (element: HTMLElement): HTMLElement[] => {
   const list: HTMLElement[] = Array.from(element.querySelectorAll(FOCUSABLE_ELEMENTS_SELECTOR) as NodeListOf<HTMLElement>).filter(
     el => el.tabIndex !== -1
   );
   return [list[0], list.slice(-1)[0]];
-}
+};
 
-export function focusTrap(element: HTMLElement, stopFocusTrap: Observable<any>, refocusOnClick = false): void {
+export const focusTrap = (element: HTMLElement, stopFocusTrap: Observable<any>, refocusOnClick = false): void => {
   const lastFocusedElement = fromEvent<FocusEvent>(element, 'focusin').pipe(
     takeUntil(stopFocusTrap),
     map(e => e.target)
@@ -29,7 +28,7 @@ export function focusTrap(element: HTMLElement, stopFocusTrap: Observable<any>, 
   fromEvent<KeyboardEvent>(element, 'keydown')
     .pipe(
       takeUntil(stopFocusTrap),
-      filter(e => e.key === Key.TAB),
+      filter(e => e.key === KEY_TAB),
       withLatestFrom(lastFocusedElement)
     )
     .subscribe(([tabEvent, focusedElement]) => {
@@ -56,4 +55,4 @@ export function focusTrap(element: HTMLElement, stopFocusTrap: Observable<any>, 
       )
       .subscribe(e => e.focus());
   }
-}
+};

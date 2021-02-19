@@ -21,6 +21,7 @@ export class NgbmodModalsModule {
 
   /**
    * Root configuration, to be added to the imports of the root module of your app.
+   *
    * @param config Optional global configuration, applied to all modals.
    */
   public static forRoot(config?: RootModalConfig): ModuleWithProviders<NgbmodModalsModule> {
