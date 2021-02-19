@@ -7,7 +7,7 @@ import {ModalRef} from './util/modal-ref';
 import {ConfirmModalData} from './util/confirm';
 
 @Injectable()
-export class NgbModalsService {
+export class Modals {
   constructor(
     private readonly moduleCFR: ComponentFactoryResolver,
     private readonly moduleInjector: Injector,

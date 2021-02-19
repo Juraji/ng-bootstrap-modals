@@ -4,23 +4,23 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {ConfirmModalComponent} from './components/confirm-modal.component';
 import {ModalBackdropComponent} from './components/modal-backdrop.component';
 import {ModalHostWindowComponent} from './components/modal-host-window.component';
-import {NgbModalsService} from './ngb-modals.service';
+import {Modals} from './modals.service';
 import {ModalHostService} from './modal-host.service';
 import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
-import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, ModalConfig} from './util/modal-config';
+import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, RootModalConfig} from './util/modal-config';
 import {AutoFocusDirective} from './components/auto-focus.directive';
 
 @NgModule({
   imports: [CommonModule],
   declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent, AutoFocusDirective],
   exports: [AutoFocusDirective],
-  providers: [NgbModalsService],
+  providers: [Modals],
   entryComponents: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent]
 })
-export class NgbModalsModule {
-  public static forRoot(config?: ModalConfig): ModuleWithProviders<NgbModalsModule> {
+export class NgbmodModalsModule {
+  public static forRoot(config?: RootModalConfig): ModuleWithProviders<NgbmodModalsModule> {
     return {
-      ngModule: NgbModalsModule,
+      ngModule: NgbmodModalsModule,
       providers: [
         ModalHostService,
         ScrollBarAdjustService,

@@ -1,5 +1,5 @@
 import {Directive} from '@angular/core';
 
-@Directive({selector: '[ngbModalAutoFocus]'})
+@Directive({selector: '[ngbmodAutoFocus]'})
 export class AutoFocusDirective {
 }

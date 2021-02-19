@@ -2,7 +2,7 @@ import {InjectionToken} from '@angular/core';
 
 export const MODAL_CONFIG = new InjectionToken<ModalConfig>('im-modal-config');
 
-export const DEFAULT_MODAL_CONFIG: ModalConfig = {
+export const DEFAULT_MODAL_CONFIG: RootModalConfig = {
   scrollable: true,
   centered: true,
   keyboard: true,
@@ -10,10 +10,7 @@ export const DEFAULT_MODAL_CONFIG: ModalConfig = {
   zIndex: 1050
 };
 
-export interface ModalConfig {
-  // Modal data
-  data?: any;
-
+export interface RootModalConfig {
   // Modal host window config
   scrollable?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -26,4 +23,9 @@ export interface ModalConfig {
   backdrop?: boolean | 'static';
   zIndex?: number;
   backdropClass?: string;
+}
+
+export interface ModalConfig extends RootModalConfig {
+  // Modal data
+  data?: any;
 }

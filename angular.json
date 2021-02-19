@@ -97,24 +97,11 @@
           "options": {
             "tsConfig": [
               "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng-bootstrap-modals:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ng-bootstrap-modals:serve:production"
-            }
           }
         }
       }
@@ -123,7 +110,7 @@
       "projectType": "library",
       "root": "projects/modals",
       "sourceRoot": "projects/modals/src",
-      "prefix": "ngb-modals",
+      "prefix": "ngbmod",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

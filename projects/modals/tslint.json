@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "ngbModal",
+      "ngbmod",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "ngb-modal",
+      "ngbmod",
       "kebab-case"
     ]
   }
