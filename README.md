@@ -18,5 +18,32 @@ This library tries to fix these issues by merging NG Bootstrap's implementation 
     * `onResolve: Observable<T>` emits and complets when the modal resolves with a value.
     * `onDismiss: Observable<void>` emits and completes when the modal is dismissed by the user pressing escape, clicking the close button or outside the container.
     * `onComplete: Observable<void>` emits and completes on resolved and dismissed.
-3. You no longer need to export your modal component as entry component. The way of constructing components is completely different
+3. You no longer need to export your modal component as entry component. The way of constructing components is completely different.
 4. Injection is now inherited from the module which exports the component. 
+
+## Installation instructions
+
+## Preconditions
+Peer dependencies:
+* @angular/common: `^11.2.1`
+* @angular/core: `^11.2.1`
+* @angular/animations: `^11.2.1`
+* bootstrap: `~4.5.0`
+
+### Github packages
+You will need to authorize to Github packages for the `@juraji` scope.
+If you have never done this before, read up on [Configuring npm for use with GitHub Packages](https://docs.github.com/en/packages/guides/configuring-npm-for-use-with-github-packages).
+
+Just for reference, here's what my `.npmrc` looks like:
+```
+@juraji:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=MY_PERSONAL_ACCESS_TOKEN
+```
+The above configuration is the same for NPM and Yarn.
+It will route NPM and yarn to only use Github packages for the `@juraji` scope.
+
+For more information on Github personal access tokens check [your developer settings](https://github.com/settings/tokens).
+
+### Installation
+
+For Yarn use `yarn add @juraji/ng-bootstrap-modals`, for NPM use `npm install @juraji/ng-bootstrap-modals`.
