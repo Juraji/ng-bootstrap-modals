@@ -1,6 +1,6 @@
 {
   "name": "@juraji/ng-bootstrap-modals",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "peerDependencies": {
     "@angular/common": "11.x.x",
     "@angular/core": "11.x.x",
