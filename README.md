@@ -1,27 +1,22 @@
-# NgBootstrapModals
+# NG Bootstrap Modals
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+## What is it for
+Basically a replacement for [NG Bootstrap's](https://github.com/ng-bootstrap/ng-bootstrap) modals implementation.
 
-## Development server
+### Why?
+__NG Bootstrap does a great job of abstracting [Bootstrap's](https://getbootstrap.com/) controls and widgets.__
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The only thing I do not agree on is their implementation of the modals:
+1. Direct access to the modal component's instance to inject data (inputs).
+2. No clear separation in api of how a modal was completed (dismiss or resolved)
+3. The use of entry components
+4. Modal components use DI injector of the module where they were spawned.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This library tries to fix these issues by merging NG Bootstrap's implementation with the one from [Angular Material](https://material.angular.io/).
+1. It uses (encapsulated) DI injector to pass settings and data to the hosted modals
+2. The `ModalRef` now has the following outputs:
+    * `onResolve: Observable<T>` emits and complets when the modal resolves with a value.
+    * `onDismiss: Observable<void>` emits and completes when the modal is dismissed by the user pressing escape, clicking the close button or outside the container.
+    * `onComplete: Observable<void>` emits and completes on resolved and dismissed.
+3. You no longer need to export your modal component as entry component. The way of constructing components is completely different
+4. Injection is now inherited from the module which exports the component. 
