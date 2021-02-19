@@ -17,11 +17,11 @@ import {
 import {Subject} from 'rxjs';
 import {filter} from 'rxjs/operators';
 
-import {MODAL_BACKDROP_PROPS, ModalBackdropComponent} from './components/modal-backdrop.component';
-import {MODAL_HOST_WINDOW_PROPS, ModalHostWindowComponent} from './components/modal-host-window.component';
+import {MODAL_BACKDROP_PROPS, ModalBackdropComponent} from './components/modal-backdrop/modal-backdrop.component';
+import {MODAL_HOST_WINDOW_PROPS, ModalHostWindowComponent} from './components/modal-host-window/modal-host-window.component';
 import {ContentRef} from './util/content-ref';
 import {focusTrap} from './util/focus-trap';
-import {MODAL_CONFIG, ModalConfig} from './util/modal-config';
+import {MODAL_CONFIG, ModalConfig} from './configuration/modal-config';
 import {ModalContent} from './util/modal-content';
 import {MODAL_DATA} from './util/modal-data';
 import {ModalRef} from './util/modal-ref';
@@ -69,8 +69,6 @@ export class ModalHostService {
     const revertScrollbarPadding = this.scrollBarAdjust.compensate();
     const modalRef = new ModalRef();
     const contentRef = this.createContentRef(moduleCFR, moduleinjector, content, modalRef, config);
-
-    modalRef.snapshot.componentRef = contentRef.componentRef;
 
     let backdropCmpRef: ComponentRef<ModalBackdropComponent>;
     if (config.backdrop !== false) {

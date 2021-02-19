@@ -1,7 +1,7 @@
 import {Component, HostBinding, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
-import {MODAL_BACKDROP_FADE_ANIMATION} from '../animations/modal-backdrop-fade.animation';
-import {buildClassList} from '../util/build-class-list';
+import {MODAL_BACKDROP_FADE_ANIMATION} from '../../animations/modal-backdrop-fade.animation';
+import {buildClassList} from '../../util/build-class-list';
 
 export const MODAL_BACKDROP_PROPS: (keyof ModalBackdropComponent)[] = ['backdropClass'];
 

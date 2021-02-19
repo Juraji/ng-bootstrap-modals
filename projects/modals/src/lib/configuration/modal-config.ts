@@ -1,7 +1,14 @@
 import {InjectionToken} from '@angular/core';
 
-export const MODAL_CONFIG = new InjectionToken<ModalConfig>('im-modal-config');
+/**
+ * Used internally to provide config in DI injector.
+ * Could be injected into your modal component's constructor, if you'd need it.
+ */
+export const MODAL_CONFIG = new InjectionToken<ModalConfig>('ngbmod-modal-config');
 
+/**
+ * Default config, used by {@link NgbmodModalsModule#forRoot()} as default config.
+ */
 export const DEFAULT_MODAL_CONFIG: RootModalConfig = {
   scrollable: true,
   centered: true,
@@ -10,6 +17,9 @@ export const DEFAULT_MODAL_CONFIG: RootModalConfig = {
   zIndex: 1050
 };
 
+/**
+ * Global modal configuration interface
+ */
 export interface RootModalConfig {
   // Modal host window config
   scrollable?: boolean;
@@ -25,6 +35,9 @@ export interface RootModalConfig {
   backdropClass?: string;
 }
 
+/**
+ * Individual modal configuration
+ */
 export interface ModalConfig extends RootModalConfig {
   // Modal data
   data?: any;

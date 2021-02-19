@@ -20,10 +20,10 @@ import {
 import {fromEvent} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
 
-import {MODAL_HOST_FADE_ANIMATION} from '../animations/modal-host-fade.animation';
-import {buildClassList} from '../util/build-class-list';
-import {getFocusableBoundaryElements} from '../util/focus-trap';
-import {Key} from '../util/key';
+import {MODAL_HOST_FADE_ANIMATION} from '../../animations/modal-host-fade.animation';
+import {buildClassList} from '../../util/build-class-list';
+import {getFocusableBoundaryElements} from '../../util/focus-trap';
+import {Key} from '../../util/key';
 
 export const MODAL_HOST_WINDOW_PROPS: (keyof ModalHostWindowComponent)[] = [
   'size',

@@ -1,8 +1,8 @@
 import {Component, Inject} from '@angular/core';
 
-import {ConfirmModalData} from '../util/confirm';
-import {MODAL_DATA} from '../util/modal-data';
-import {ModalRef} from '../util/modal-ref';
+import {ConfirmModalData} from './confirm';
+import {MODAL_DATA} from '../../util/modal-data';
+import {ModalRef} from '../../util/modal-ref';
 
 @Component({
   templateUrl: './confirm-modal.component.html'

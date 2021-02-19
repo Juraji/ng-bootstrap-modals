@@ -1,56 +1,67 @@
-import {ComponentRef} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 
 import {ModalContent} from './modal-content';
 
-type ModalState = 'resolved' | 'dismissed' | 'completed';
-
-interface ModalRefSnapShot<T, R> {
-  componentRef: ComponentRef<T>;
-  result: R;
+interface ModalState<T> {
+  state: 'resolved' | 'dismissed' | 'completed';
+  result?: T;
 }
 
+/**
+ * The reference to a hosted modal.
+ */
 export class ModalRef<T extends ModalContent = any, R = any> {
-  private readonly states = new Subject<ModalState>();
-  public readonly onResolved: Observable<R>;
-  public readonly onDismissed: Observable<void>;
-  public readonly onComplete: Observable<void>;
+  private readonly states = new Subject<ModalState<R>>();
 
-  // Snapshot properties
-  public readonly snapshot: ModalRefSnapShot<T, R> = {
-    componentRef: undefined,
-    result: undefined
-  };
+  /**
+   * Emits either the value or null when the modal is resolved.
+   */
+  public readonly onResolved: Observable<R>;
+
+  /**
+   * Emits when the modal is dismissed.
+   */
+  public readonly onDismissed: Observable<void>;
+
+  /**
+   * Emits when the modal completes, by either being resolved or dismissed.
+   */
+  public readonly onComplete: Observable<void>;
 
   constructor() {
     this.onResolved = this.states.pipe(
-      filter(s => s === 'resolved'),
-      map(() => this.snapshot.result)
+      filter(s => s.state === 'resolved'),
+      map(s => s.result)
     );
     this.onDismissed = this.states.pipe(
-      filter(s => s === 'dismissed'),
+      filter(s => s.state === 'dismissed'),
       map(() => undefined)
     );
     this.onComplete = this.states.pipe(
-      filter(s => s === 'completed'),
+      filter(s => s.state === 'completed'),
       map(() => undefined)
     );
   }
 
-  public resolve(result: R): void {
-    this.snapshot.result = result;
-    this.states.next('resolved');
+  /**
+   * Resolve this modal. Optionally with a value.
+   */
+  public resolve(result?: R): void {
+    this.states.next({state: 'resolved', result});
     this.complete();
   }
 
+  /**
+   * Dismisses this modal
+   */
   public dismiss(): void {
-    this.states.next('dismissed');
+    this.states.next({state: 'dismissed'});
     this.complete();
   }
 
   private complete(): void {
-    this.states.next('completed');
+    this.states.next({state: 'completed'});
     this.states.complete();
   }
 }
