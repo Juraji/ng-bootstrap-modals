@@ -6,9 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
-    "build:modals": "ng build modals --prod",
-    "publish": "cd dist/modals && yarn publish"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

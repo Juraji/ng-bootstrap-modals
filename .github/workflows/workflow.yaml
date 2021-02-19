@@ -1,11 +1,9 @@
-name: Build and publish npm module
+name: Publish library
 
 on:
-  workflow_dispatch:
-    inputs:
-      newVersion:
-        description: 'New version'
-        required: true
+  release:
+    types:
+      - published
 
 jobs:
   build:
@@ -13,18 +11,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: 'Use Node.js 12.x'
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@juraji'
+
       - name: 'Install dependencies'
         run: yarn --frozen-lockfile
+
       - name: 'Build package'
         run: npx ng build modals --prod
+
       - name: 'Publish package'
-        run: cd dist/modals && yarn publish --new-version ${{ github.event.inputs.newVersion }}
+        run: yarn publish dist/modals --new-version "${GITHUB_REF:11}" --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
