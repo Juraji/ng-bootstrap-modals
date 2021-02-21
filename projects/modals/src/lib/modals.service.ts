@@ -5,6 +5,7 @@ import {ModalConfig} from './configuration/modal-config';
 import {ModalContent} from './util/modal-content';
 import {ModalRef} from './util/modal-ref';
 import {ConfirmModalData} from './components/confirm-modal/confirm';
+import {ConfirmModalComponent} from './components/confirm-modal/confirm-modal.component';
 
 /**
  * The main service for managing modals
