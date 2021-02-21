@@ -13,9 +13,8 @@ import {AutoFocusDirective} from './components/auto-focus.directive';
 @NgModule({
   imports: [CommonModule],
   declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent, AutoFocusDirective],
-  exports: [AutoFocusDirective],
-  providers: [Modals],
-  entryComponents: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent]
+  exports: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent, AutoFocusDirective],
+  providers: [Modals]
 })
 export class NgbmodModalsModule {
 

@@ -9,7 +9,7 @@ const FOCUSABLE_ELEMENTS_SELECTOR = [
   'select:not([disabled])',
   'textarea:not([disabled])',
   '[contenteditable]',
-  '[tabindex]:not([tabindex=\'-1\'])'
+  '[tabindex]:not([tabindex=\'-1\'])',
 ].join(', ');
 
 export const getFocusableBoundaryElements = (element: HTMLElement): HTMLElement[] => {
