@@ -10,11 +10,26 @@ import {AppComponent} from './app.component';
   ],
   imports: [
     BrowserModule,
+
+    // This is important and needs to be in your root module.
+    // If you do not want any animations, import the NoopAnimationsModule instead.
     BrowserAnimationsModule,
 
-    // This is important and needs to be in your root module,
-    // it will initialize settings and the modal host service
-    NgbmodModalsModule.forRoot(),
+    // This will initialize the module and allow you to globally override settings.
+    // Individual modal invocations can override these settings, via the config parameter in Modals#open().
+    // Omit the config parameter to use the defaults.
+    NgbmodModalsModule.forRoot({
+      scrollable: true,       // Allow scrolling modals
+      size: null,             // Set a global size, one of 'sm', 'md' or 'lg'
+      ariaLabelledBy: null,   // Accessibility setting, auto works best
+      centered: true,         // Vertically center modals
+      keyboard: true,         // Enable the ESC button closing the modal
+      windowClass: null,      // A class string which will be added to the modal window
+      backdrop: true,         // Enable/modify the backdrop, one of true, false or 'static'
+                              // 'static' will disable clicking outside the modal to dismiss it
+      zIndex: 1050,           // the modal z-index
+      backdropClass: null,    // A class string which will be added to the backdrop
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
