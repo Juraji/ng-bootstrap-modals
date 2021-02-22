@@ -1,0 +1,31 @@
+name: Publish library
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published
+
+jobs:
+  gh-pages-demo:
+    runs-on: ubuntu-latest
+    name: Deploy demo app to Github Pages
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Use Node.js 12.x'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Yarn install cache
+        uses: c-hive/gha-yarn-cache@v1
+
+      - name: 'Install dependencies'
+        run: yarn --frozen-lockfile
+
+      - name: 'Build and deploy demo app'
+        run: npx ng deploy ng-bootstrap-modals --base-href=/ng-bootstrap-modals/
+
+

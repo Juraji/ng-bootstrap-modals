@@ -1,0 +1,10 @@
+:host {
+  .github-link-img {
+    height: 1.5em;
+    opacity: .65;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}

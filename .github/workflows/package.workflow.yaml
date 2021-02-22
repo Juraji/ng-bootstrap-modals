@@ -6,8 +6,9 @@ on:
       - published
 
 jobs:
-  build:
+  package:
     runs-on: ubuntu-latest
+    name: Build and deploy to Github Packages
 
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +20,9 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@juraji'
 
+      - name: Yarn install cache
+        uses: c-hive/gha-yarn-cache@v1
+
       - name: 'Install dependencies'
         run: yarn --frozen-lockfile
 
@@ -29,4 +33,3 @@ jobs:
         run: yarn publish dist/modals --new-version "${GITHUB_REF:11}" --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

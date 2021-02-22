@@ -9,6 +9,7 @@ interface Link {
 @Component({
   selector: 'app-main-navbar',
   templateUrl: './main-navbar.component.html',
+  styleUrls: ['./main-navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainNavbarComponent implements OnInit {

@@ -5,8 +5,7 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Component({
-  templateUrl: './custom-modals.page.html',
-  styleUrls: ['./custom-modals.page.scss']
+  templateUrl: './custom-modals.page.html'
 })
 export class CustomModalsPage {
 
