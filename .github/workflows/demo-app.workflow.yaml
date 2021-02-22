@@ -31,10 +31,11 @@ jobs:
       - name: 'Build and deploy demo app'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx ng deploy ng-bootstrap-modals \
-          --base-href=/ng-bootstrap-modals/ \
-          --name="Juraji" \
-          --email="github@juraji.nl" \
+        run: >
+          npx ng deploy ng-bootstrap-modals
+          --base-href=/ng-bootstrap-modals/
+          --name="Juraji"
+          --email="github@juraji.nl"
           --no-silent
 
 
