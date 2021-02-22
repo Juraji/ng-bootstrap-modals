@@ -25,6 +25,9 @@ jobs:
       - name: 'Install dependencies'
         run: yarn --frozen-lockfile
 
+      - name: 'Build modals library'
+        run: npx ng build modals --prod
+
       - name: 'Build and deploy demo app'
         run: npx ng deploy ng-bootstrap-modals --base-href=/ng-bootstrap-modals/
 
