@@ -29,6 +29,12 @@ jobs:
         run: npx ng build modals --prod
 
       - name: 'Build and deploy demo app'
-        run: npx ng deploy ng-bootstrap-modals --base-href=/ng-bootstrap-modals/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx ng deploy ng-bootstrap-modals \
+          --base-href=/ng-bootstrap-modals/ \
+          --name="Juraji" \
+          --email="github@juraji.nl" \
+          --no-silent
 
 
