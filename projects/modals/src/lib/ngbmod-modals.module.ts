@@ -9,11 +9,13 @@ import {ModalHostService} from './modal-host.service';
 import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
 import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, RootModalConfig} from './configuration/modal-config';
 import {AutoFocusDirective} from './components/auto-focus.directive';
+import {DismissDirective} from './components/dismiss.directive';
+import {ResolveDirective} from './components/resolve.directive';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective],
-  exports: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective],
+  declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective, DismissDirective, ResolveDirective],
+  exports: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective, DismissDirective, ResolveDirective],
   providers: [Modals]
 })
 export class NgbmodModalsModule {

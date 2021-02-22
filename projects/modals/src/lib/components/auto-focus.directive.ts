@@ -1,4 +1,4 @@
-import {AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef} from '@angular/core';
 
 const AUTO_FOCUS_ELEMENTS_SELECTOR =
   'a[href][ngbmodAutoFocus],' +
@@ -18,11 +18,12 @@ export class AutoFocusDirective implements AfterViewInit {
 
   constructor(
     private readonly elementRef: ElementRef,
-    private readonly renderer: Renderer2,
   ) {
   }
 
   ngAfterViewInit(): void {
-    this.renderer.selectRootElement(this.elementRef.nativeElement).focus();
+    if (!!this.elementRef.nativeElement.focus) {
+      this.elementRef.nativeElement.focus();
+    }
   }
 }
