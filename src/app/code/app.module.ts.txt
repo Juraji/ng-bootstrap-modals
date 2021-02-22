@@ -1,12 +1,8 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
-import {AppComponent} from './app.component';
-import {AppRoutingModule} from './app-routing.module';
-import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
-import {MainNavbarModule} from './@components/main-navbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CodeHighlightingModule} from './@components/code-highlighting';
+import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
+import {AppComponent} from './app.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +11,10 @@ import {CodeHighlightingModule} from './@components/code-highlighting';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+
+    // This is important and needs to be in your root module,
+    // it will initialize settings and the modal host service
     NgbmodModalsModule.forRoot(),
-    CodeHighlightingModule.forRoot(),
-    MainNavbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

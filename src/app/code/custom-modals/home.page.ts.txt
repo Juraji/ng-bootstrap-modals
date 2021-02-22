@@ -1,0 +1,36 @@
+import {Component} from '@angular/core';
+import {Modals} from '@juraji/ng-bootstrap-modals';
+import {ExampleModal, ExampleModalData, ExampleModalResult} from './example.modal';
+
+@Component({
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss']
+})
+export class HomePage {
+
+  constructor(
+    private readonly modals: Modals
+  ) {
+  }
+
+  onOpenCustomModal() {
+    const modalRef = this.modals.open<ExampleModalResult>(ExampleModal, {
+      data: {
+        title: 'My custom modal',
+        content: 'This content is rendered from the modal data!'
+      } as ExampleModalData
+    });
+
+    modalRef.onResolved
+      .subscribe(result => console.log("A value was resolved", result));
+
+    modalRef.onDismissed
+      .subscribe(()) => console.log("The modal was dismissed"));
+
+    modalRef.onComplete
+      .subscribe(()) => console.log("The modal was completed"));
+
+    // modal.dismiss() will dismiss the modal
+    // modal.resolve(value) will resolve the modal, this is used internally
+  }
+}

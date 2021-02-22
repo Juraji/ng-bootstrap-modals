@@ -9,7 +9,7 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "paths": {
-      "modals": [
+      "@juraji/ng-bootstrap-modals": [
         "dist/modals/modals",
         "dist/modals"
       ]

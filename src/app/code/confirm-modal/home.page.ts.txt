@@ -1,0 +1,28 @@
+import {Component} from '@angular/core';
+import {Modals} from '@juraji/ng-bootstrap-modals';
+import {ExampleModal, ExampleModalData, ExampleModalResult} from './example.modal';
+
+@Component({
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss']
+})
+export class HomePage {
+
+  constructor(
+    private readonly modals: Modals
+  ) {
+  }
+
+  onOpenCustomModal() {
+    const modalRef = this.modals.confirm(
+      'Are you sure you want to use a ' +
+        '<span class="text-primary">confirm modal</span>?',  // Message body. HTML is allowed
+      'Sure!',                                               // Confirm button label (Optional, defaults to "Yes")
+      'No...'                                                // Cancel button label (Optional, defaults to "Cancel")
+    );
+
+    this.modalResolve$ = modalRef.onResolved;
+    this.modalDismiss$ = modalRef.onDismissed.pipe(map(() => 'Modal was dismissed!'));
+    this.modalComplete$ = modalRef.onComplete.pipe(map(() => 'Modal was completed!'));
+  }
+}

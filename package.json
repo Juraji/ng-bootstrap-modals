@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng build modals --prod && ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint"
@@ -18,7 +18,10 @@
     "@angular/platform-browser": "11.x.x",
     "@angular/platform-browser-dynamic": "11.x.x",
     "@angular/router": "11.x.x",
+    "@ng-bootstrap/ng-bootstrap": "^9.x.x",
     "bootstrap": "4.x.x",
+    "highlight.js": "^10.x.x",
+    "ngx-highlightjs": "^4.x.x",
     "rxjs": "6.x.x",
     "tslib": "2.x.x",
     "zone.js": "0.11.x"
@@ -32,6 +35,7 @@
     "@angular-eslint/template-parser": "~1.x.x",
     "@angular/cli": "11.x.x",
     "@angular/compiler-cli": "11.x.x",
+    "@angular/localize": "11.x.x",
     "@types/jasmine": "3.6.x",
     "@types/node": "12.x.x",
     "@typescript-eslint/eslint-plugin": "4.x.x",
@@ -48,6 +52,7 @@
     "karma-jasmine": "4.x.x",
     "karma-jasmine-html-reporter": "1.x.x",
     "ng-packagr": "11.x.x",
+    "raw-loader": "^4.0.2",
     "ts-node": "~8.x.x",
     "typescript": "4.x.x"
   }

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4>Custom modal</h4>
+    </div>
+    <div class="card-body">
+      <div class="d-flex mb-3">
+        <button class="btn btn-primary mr-4" (click)="onOpenCustomModal()">Open custom modal...</button>
+        <ul class="list-unstyled">
+          <li>Resolved status: <span class="font-weight-bold">{{modalResolve$ | async}}</span></li>
+          <li>Dismissed status: <span class="font-weight-bold">{{modalDismiss$ | async}}</span></li>
+          <li>Completed status: <span class="font-weight-bold">{{modalComplete$ | async}}</span></li>
+        </ul>
+      </div>
+
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li *ngFor="let f of exampleCode; let i = index" [ngbNavItem]="i">
+          <a ngbNavLink>{{f.file}}</a>
+          <ng-template ngbNavContent>
+            <pre [highlight]="f.contents"></pre>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+  </div>
+</div>
