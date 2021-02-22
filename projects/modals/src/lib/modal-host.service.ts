@@ -57,18 +57,18 @@ export class ModalHostService {
     });
   }
 
-  public open<T extends ModalContent, R = any>(
+  public open<R = any>(
     moduleCFR: ComponentFactoryResolver,
-    moduleinjector: Injector,
-    content: T,
+    moduleInjector: Injector,
+    content: ModalContent,
     config?: ModalConfig
-  ): ModalRef<T, R> {
+  ): ModalRef<R> {
     config = Object.assign({}, this.moduleConfig, config);
 
     const containerEl = this.document.body;
     const revertScrollbarPadding = this.scrollBarAdjust.compensate();
     const modalRef = new ModalRef();
-    const contentRef = this.createContentRef(moduleCFR, moduleinjector, content, modalRef, config);
+    const contentRef = this.createContentRef(moduleCFR, moduleInjector, content, modalRef, config);
 
     let backdropCmpRef: ComponentRef<ModalBackdropComponent>;
     if (config.backdrop !== false) {
@@ -125,10 +125,10 @@ export class ModalHostService {
     return this.modalRefs.length > 0;
   }
 
-  private createContentRef<T extends ModalContent>(
+  private createContentRef(
     moduleCFR: ComponentFactoryResolver,
-    moduleinjector: Injector,
-    content: T,
+    moduleInjector: Injector,
+    content: ModalContent,
     modalRef: ModalRef,
     config: ModalConfig
   ): ContentRef {
@@ -137,7 +137,7 @@ export class ModalHostService {
     } else if (content instanceof TemplateRef) {
       return this.createContentRefFromTemplateRef(content, modalRef, config);
     } else {
-      return this.createContentRefFromComponent(moduleCFR, moduleinjector, content as Type<any>, modalRef, config);
+      return this.createContentRefFromComponent(moduleCFR, moduleInjector, content as Type<any>, modalRef, config);
     }
   }
 

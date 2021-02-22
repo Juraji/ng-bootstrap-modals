@@ -27,7 +27,7 @@ export class Modals {
    *               When the data property is set you can use the injection token "MODAL_DATA" to inject
    *               the value into the constructor of your modal component.
    */
-  public open<T extends ModalContent, R = any>(content: T, config?: ModalConfig): ModalRef<T, R> {
+  public open<R = any>(content: ModalContent, config?: ModalConfig): ModalRef<R> {
     return this.modalHost.open(this.moduleCFR, this.moduleInjector, content, config);
   }
 

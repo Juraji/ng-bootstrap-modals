@@ -1,8 +1,6 @@
 import {Observable, Subject} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 
-import {ModalContent} from './modal-content';
-
 interface ModalState<T> {
   state: 'resolved' | 'dismissed' | 'completed';
   result?: T;
@@ -11,7 +9,7 @@ interface ModalState<T> {
 /**
  * The reference to a hosted modal.
  */
-export class ModalRef<T extends ModalContent = any, R = any> {
+export class ModalRef<R = any> {
   private readonly states = new Subject<ModalState<R>>();
 
   /**
