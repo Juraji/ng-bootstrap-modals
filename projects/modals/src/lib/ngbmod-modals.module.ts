@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ModuleWithProviders, NgModule, ValueProvider} from '@angular/core';
 
-import {ConfirmModalComponent} from './components/confirm-modal/confirm-modal.component';
+import {ConfirmModal} from './components/confirm/confirm.modal';
 import {ModalBackdropComponent} from './components/modal-backdrop/modal-backdrop.component';
 import {ModalHostWindowComponent} from './components/modal-host-window/modal-host-window.component';
 import {Modals} from './modals.service';
@@ -12,8 +12,8 @@ import {AutoFocusDirective} from './components/auto-focus.directive';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent, AutoFocusDirective],
-  exports: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModalComponent, AutoFocusDirective],
+  declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective],
+  exports: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective],
   providers: [Modals]
 })
 export class NgbmodModalsModule {

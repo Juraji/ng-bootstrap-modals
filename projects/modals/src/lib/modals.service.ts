@@ -4,8 +4,8 @@ import {ModalHostService} from './modal-host.service';
 import {ModalConfig} from './configuration/modal-config';
 import {ModalContent} from './util/modal-content';
 import {ModalRef} from './util/modal-ref';
-import {ConfirmModalData} from './components/confirm-modal/confirm';
-import {ConfirmModalComponent} from './components/confirm-modal/confirm-modal.component';
+import {ConfirmModalData} from './components/confirm/confirm';
+import {ConfirmModal} from './components/confirm/confirm.modal';
 
 /**
  * The main service for managing modals
@@ -39,13 +39,9 @@ export class Modals {
    * @param cancel Custom cancel button label, defaults to "Cancel"
    * @return The ModalRef to the hosted modal
    */
-  public confirm(
-    message: string,
-    confirm?: string,
-    cancel?: string
-  ): ModalRef<never> {
+  public confirm(message: string, confirm?: string, cancel?: string): ModalRef<never> {
     // @ts-ignore
-    return this.open(ConfirmModalComponent, {
+    return this.open(ConfirmModal, {
       data: {
         message,
         confirmLabel: confirm,

@@ -5,9 +5,9 @@ import {MODAL_DATA} from '../../util/modal-data';
 import {ModalRef} from '../../util/modal-ref';
 
 @Component({
-  templateUrl: './confirm-modal.component.html'
+  templateUrl: './confirm.modal.html'
 })
-export class ConfirmModalComponent {
+export class ConfirmModal {
   constructor(
     private readonly modalRef: ModalRef,
     @Inject(MODAL_DATA) public readonly confirmData: ConfirmModalData
