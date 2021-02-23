@@ -1,3 +1,6 @@
+![Library build badge](https://github.com/juraji/ng-bootstrap-modals/actions/workflows/package.workflow.yaml/badge.svg)
+![Demo app build badge](https://github.com/juraji/ng-bootstrap-modals/actions/workflows/demo-app.workflow.yaml/badge.svg)
+
 # NG Bootstrap Modals
 
 ## What is it for
