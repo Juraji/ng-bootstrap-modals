@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
+  { path: 'home', loadChildren: () => import('./routes/home/home.module').then(m => m.HomeModule) },
   {
     path: 'custom-modal',
     loadChildren: () => import('./routes/custom-modals/custom-modals.module').then(m => m.CustomModalsModule)
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'custom-modal'
+    redirectTo: 'home'
   }
 ];
 

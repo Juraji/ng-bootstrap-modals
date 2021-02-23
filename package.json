@@ -22,6 +22,7 @@
     "bootstrap": "4.x.x",
     "highlight.js": "^10.x.x",
     "ngx-highlightjs": "^4.x.x",
+    "ngx-markdown": "^11.1.0",
     "rxjs": "6.x.x",
     "tslib": "2.x.x",
     "zone.js": "0.11.x"

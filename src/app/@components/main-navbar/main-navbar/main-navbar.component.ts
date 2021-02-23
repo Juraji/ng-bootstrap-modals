@@ -9,7 +9,6 @@ interface Link {
 @Component({
   selector: 'app-main-navbar',
   templateUrl: './main-navbar.component.html',
-  styleUrls: ['./main-navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainNavbarComponent implements OnInit {
@@ -17,6 +16,7 @@ export class MainNavbarComponent implements OnInit {
   readonly opened$ = new BehaviorSubject(false);
 
   readonly links: Link[] = [
+    {label: 'Home', url: '/home'},
     {label: 'Custom Modal', url: '/custom-modal'},
     {label: 'Confirm', url: '/confirm-modal'},
     {label: 'Blocking Shade', url: '/shade-modal'},

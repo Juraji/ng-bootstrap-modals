@@ -1,3 +1,4 @@
+[![GitHub release](https://img.shields.io/github/release/juraji/ng-bootstrap-modals.svg)](https://GitHub.com/juraji/ng-bootstrap-modals/releases/)
 ![Library build badge](https://github.com/juraji/ng-bootstrap-modals/actions/workflows/package.workflow.yaml/badge.svg)
 ![Demo app build badge](https://github.com/juraji/ng-bootstrap-modals/actions/workflows/demo-app.workflow.yaml/badge.svg)
 
@@ -5,6 +6,8 @@
 
 ## What is it for
 Basically a replacement for [NG Bootstrap's](https://github.com/ng-bootstrap/ng-bootstrap) modals implementation.
+
+__For a demo's and examples visit [the demo site](https://juraji.github.io/ng-bootstrap-modals)__.
 
 ### Why?
 __NG Bootstrap does a great job of abstracting [Bootstrap's](https://getbootstrap.com/) controls and widgets.__
@@ -26,7 +29,7 @@ This library tries to fix these issues by merging NG Bootstrap's implementation 
 
 ## Installation instructions
 
-## Preconditions
+### Preconditions
 Peer dependencies:
 * @angular/common: `^11.2.1`
 * @angular/core: `^11.2.1`
@@ -49,4 +52,10 @@ For more information on Github personal access tokens check [your developer sett
 
 ### Installation
 
-For Yarn use `yarn add @juraji/ng-bootstrap-modals`, for NPM use `npm install @juraji/ng-bootstrap-modals`.
+1. Install `@juraji/ng-bootstrap-modals`.
+    * For Yarn use `yarn add @juraji/ng-bootstrap-modals`.
+    * For NPM use `npm install @juraji/ng-bootstrap-modals`.
+2. Add `NgbmodModule.forRoot()` to your root module.
+3. Use the `Modals` service to open components as modals.
+
+For examples visit [the demo site](https://juraji.github.io/ng-bootstrap-modals)!

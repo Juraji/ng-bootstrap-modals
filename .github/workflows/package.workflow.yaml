@@ -1,4 +1,4 @@
-name: Publish library
+name: Github Packages release
 
 on:
   release:

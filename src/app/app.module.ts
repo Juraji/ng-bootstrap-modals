@@ -7,6 +7,7 @@ import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
 import {MainNavbarModule} from './@components/main-navbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ExampleCodeModule} from './@components/example-code';
+import {MarkdownModule} from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {ExampleCodeModule} from './@components/example-code';
     AppRoutingModule,
     ExampleCodeModule.forRoot(),
     NgbmodModalsModule.forRoot(),
+    MarkdownModule.forRoot(),
     MainNavbarModule
   ],
   providers: [],
