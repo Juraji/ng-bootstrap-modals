@@ -24,17 +24,15 @@ import {focusTrap} from './util/focus-trap';
 import {MODAL_CONFIG, ModalConfig} from './configuration/modal-config';
 import {ModalContent} from './util/modal-content';
 import {MODAL_DATA} from './util/modal-data';
-import {ModalRefImpl} from './util/modal-ref';
-
+import {ModalRef} from './util/modal-ref';
 import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
-import {ModalRef} from '@juraji/ng-bootstrap-modals';
 
 @Injectable({providedIn: 'root'})
 export class ModalHostService {
   private readonly activeWindowCmptHasChanged = new Subject<void>();
   private readonly ariaHiddenValues = new Map<Element, string>();
   private readonly windowCmps: ComponentRef<ModalHostWindowComponent>[] = [];
-  private readonly modalRefs: ModalRefImpl[] = [];
+  private readonly modalRefs: ModalRef[] = [];
   private readonly document: Document;
   public readonly renderer: Renderer2;
 
@@ -63,12 +61,12 @@ export class ModalHostService {
     moduleInjector: Injector,
     content: ModalContent,
     config?: ModalConfig
-  ): ModalRefImpl<R> {
+  ): ModalRef<R> {
     config = Object.assign({}, this.moduleConfig, config);
 
     const containerEl = this.document.body;
     const revertScrollbarPadding = this.scrollBarAdjust.compensate();
-    const modalRef = new ModalRefImpl();
+    const modalRef = new ModalRef();
     const viewRef = this.createContentRef(moduleCFR, moduleInjector, content, modalRef, config);
 
     let backdropCmpRef: ComponentRef<ModalBackdropComponent>;
@@ -130,7 +128,7 @@ export class ModalHostService {
     moduleCFR: ComponentFactoryResolver,
     moduleInjector: Injector,
     content: ModalContent,
-    modalRef: ModalRefImpl,
+    modalRef: ModalRef,
     config: ModalConfig
   ): ViewRef {
     if (!content) {
@@ -142,7 +140,7 @@ export class ModalHostService {
     }
   }
 
-  private createContentRefFromTemplateRef(content: TemplateRef<any>, modalRef: ModalRefImpl, config: ModalConfig): ViewRef {
+  private createContentRefFromTemplateRef(content: TemplateRef<any>, modalRef: ModalRef, config: ModalConfig): ViewRef {
     const context = {
       $implicit: config.data,
       dismiss: () => modalRef.dismiss()
@@ -155,7 +153,7 @@ export class ModalHostService {
     moduleCFR: ComponentFactoryResolver,
     moduleInjector: Injector,
     content: Type<any>,
-    modalRef: ModalRefImpl<Type<any>>,
+    modalRef: ModalRef<Type<any>>,
     config: ModalConfig
   ): ViewRef {
     const cmpFactory = moduleCFR.resolveComponentFactory(content);
@@ -216,7 +214,7 @@ export class ModalHostService {
     moduleCFR: ComponentFactoryResolver,
     containerEl: HTMLElement,
     viewRef: ViewRef,
-    modalRef: ModalRefImpl
+    modalRef: ModalRef
   ): ComponentRef<ModalHostWindowComponent> {
     const windowCmpRef = moduleCFR.resolveComponentFactory(ModalHostWindowComponent).create(this.injector);
     windowCmpRef.instance.modalContentOutlet.insert(viewRef);
@@ -228,7 +226,7 @@ export class ModalHostService {
     return windowCmpRef;
   }
 
-  private registerModalRef(modalRef: ModalRefImpl): void {
+  private registerModalRef(modalRef: ModalRef): void {
     const unregisterModalRef = () => {
       const index = this.modalRefs.indexOf(modalRef);
       if (index > -1) {
