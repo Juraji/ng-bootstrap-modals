@@ -1,12 +1,12 @@
 import {Directive, HostListener} from '@angular/core';
-import {ModalRef} from '../util/modal-ref';
+import {ModalRefImpl} from '../util/modal-ref-impl';
 
 @Directive({
   selector: '[ngbmodDismiss]'
 })
 export class DismissDirective {
 
-  constructor(private readonly modalRef: ModalRef) {
+  constructor(private readonly modalRef: ModalRefImpl) {
   }
 
   @HostListener('click')

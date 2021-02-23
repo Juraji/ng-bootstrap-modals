@@ -1,6 +1,5 @@
 import {fromEvent, Observable} from 'rxjs';
 import {filter, map, takeUntil, withLatestFrom} from 'rxjs/operators';
-import {KEY_TAB} from './key';
 
 const FOCUSABLE_ELEMENTS_SELECTOR = [
   'a[href]',
@@ -28,7 +27,7 @@ export const focusTrap = (element: HTMLElement, stopFocusTrap: Observable<any>, 
   fromEvent<KeyboardEvent>(element, 'keydown')
     .pipe(
       takeUntil(stopFocusTrap),
-      filter(e => e.key === KEY_TAB),
+      filter(e => e.key === 'Tab'),
       withLatestFrom(lastFocusedElement)
     )
     .subscribe(([tabEvent, focusedElement]) => {

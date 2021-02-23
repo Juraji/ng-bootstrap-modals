@@ -1,5 +1,5 @@
 import {Directive, HostListener, Input} from '@angular/core';
-import {ModalRef} from '../util/modal-ref';
+import {ModalRefImpl} from '../util/modal-ref-impl';
 
 @Directive({
   selector: '[ngbmodResolve]'
@@ -9,7 +9,7 @@ export class ResolveDirective {
   @Input()
   ngbmodResolve: any = null;
 
-  constructor(private readonly modalRef: ModalRef) {
+  constructor(private readonly modalRef: ModalRefImpl) {
   }
 
   @HostListener('click')

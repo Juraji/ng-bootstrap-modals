@@ -6,10 +6,17 @@ interface ModalState<T> {
   result?: T;
 }
 
+export interface ModalRef<R>{
+  readonly onResolved: Observable<R>;
+  readonly onDismissed: Observable<void>;
+  readonly onComplete: Observable<void>;
+  dismiss(): void;
+}
+
 /**
  * The reference to a hosted modal.
  */
-export class ModalRef<R = any> {
+export class ModalRefImpl<R = any> implements ModalRef<R>{
   private readonly states = new Subject<ModalState<R>>();
 
   /**

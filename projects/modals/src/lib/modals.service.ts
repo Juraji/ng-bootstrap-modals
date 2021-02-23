@@ -39,7 +39,7 @@ export class Modals {
    * @param cancel Custom cancel button label, defaults to "Cancel"
    * @return The ModalRef to the hosted modal
    */
-  public confirm(message: string, confirm?: string, cancel?: string): ModalRef<never> {
+  public confirm(message: string, confirm?: string, cancel?: string): ModalRef<"OK"> {
     // @ts-ignore
     return this.open(ConfirmModal, {
       data: {
