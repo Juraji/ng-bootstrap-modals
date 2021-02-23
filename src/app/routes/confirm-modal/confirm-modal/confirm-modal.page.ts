@@ -8,8 +8,8 @@ import {map} from 'rxjs/operators';
 })
 export class ConfirmModalPage {
 
-  readonly exampleCode = [
-    {file: 'home.page.ts', contents: require(`!raw-loader!src/app/code/confirm-modal/home.page.ts.txt`).default},
+  readonly examples: ExampleCodeMap[] = [
+    {file: 'example.component.ts', contents: require(`!raw-loader!src/app/code/confirm-modal/example.component.ts.txt`).default},
     {file: 'app.module.ts', contents: require(`!raw-loader!src/app/code/app.module.ts.txt`).default},
   ];
 

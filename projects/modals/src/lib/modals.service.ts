@@ -6,6 +6,9 @@ import {ModalContent} from './util/modal-content';
 import {ModalRef} from './util/modal-ref';
 import {ConfirmModalData} from './components/confirm/confirm';
 import {ConfirmModal} from './components/confirm/confirm.modal';
+import {ShadeModalData, ShadeRef} from './components/shade/shade';
+import {ShadeModal} from './components/shade/shade.modal';
+import {Observable} from 'rxjs';
 
 /**
  * The main service for managing modals
@@ -39,7 +42,7 @@ export class Modals {
    * @param cancel Custom cancel button label, defaults to "Cancel"
    * @return The ModalRef to the hosted modal
    */
-  public confirm(message: string, confirm?: string, cancel?: string): ModalRef<"OK"> {
+  public confirm(message: string, confirm?: string, cancel?: string): ModalRef<'OK'> {
     // @ts-ignore
     return this.open(ConfirmModal, {
       data: {
@@ -47,6 +50,26 @@ export class Modals {
         confirmLabel: confirm,
         cancelLabel: cancel
       } as ConfirmModalData
+    });
+  }
+
+  /**
+   * Create a blocking shade, with a message.
+   * Only dismissible via the ShadeRef.
+   *
+   * @param message (HTML or text) The message to display
+   * @param progress Optional observable, emitting task progress from 0 until 100
+   *                 When undefined, emitting undefined or emitting a out-of-range number,
+   *                 the modal will display an indefinite progressbar
+   */
+  public shade(message: string, progress?: Observable<number>): ShadeRef {
+    return this.open<never>(ShadeModal, {
+      data: {message, progress} as ShadeModalData,
+      scrollable: false,
+      size: 'sm',
+      centered: true,
+      keyboard: false,
+      backdrop: 'static',
     });
   }
 

@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
 import {MainNavbarModule} from './@components/main-navbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CodeHighlightingModule} from './@components/code-highlighting';
+import {ExampleCodeModule} from './@components/example-code';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,8 @@ import {CodeHighlightingModule} from './@components/code-highlighting';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ExampleCodeModule.forRoot(),
     NgbmodModalsModule.forRoot(),
-    CodeHighlightingModule.forRoot(),
     MainNavbarModule
   ],
   providers: [],

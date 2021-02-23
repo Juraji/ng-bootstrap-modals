@@ -1,16 +1,24 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ExampleCodeComponent} from './example-code/example-code.component';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 import {HighlightOptions} from 'ngx-highlightjs/lib/highlight.model';
+import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
-  imports: [HighlightModule],
-  exports: [HighlightModule],
+  declarations: [ExampleCodeComponent],
+  imports: [
+    CommonModule,
+    HighlightModule,
+    NgbNavModule
+  ],
+  exports: [ExampleCodeComponent]
 })
-export class CodeHighlightingModule {
-  static forRoot(): ModuleWithProviders<CodeHighlightingModule> {
+export class ExampleCodeModule {
+  static forRoot(): ModuleWithProviders<ExampleCodeModule> {
     return {
-      ngModule: CodeHighlightingModule,
+      ngModule: ExampleCodeModule,
       providers: [
         {
           provide: HIGHLIGHT_OPTIONS,

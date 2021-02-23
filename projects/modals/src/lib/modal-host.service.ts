@@ -154,21 +154,23 @@ export class ModalHostService {
     moduleInjector: Injector,
     content: Type<any>,
     modalRef: ModalRef<Type<any>>,
-    config: ModalConfig
+    {data: modalData, ...modalConfig}: ModalConfig
   ): ViewRef {
     const cmpFactory = moduleCFR.resolveComponentFactory(content);
+
     const contentInjector = Injector.create({
       parent: moduleInjector,
       providers: [
         {provide: ModalRef, useValue: modalRef},
-        {provide: MODAL_DATA, useValue: config.data}
+        {provide: MODAL_DATA, useValue: modalData},
+        {provide: MODAL_CONFIG, useValue: modalConfig},
       ]
     });
 
     const cmpRef = cmpFactory.create(contentInjector);
     this.renderer.addClass(cmpRef.location.nativeElement, 'modal-content');
 
-    if (config.scrollable) {
+    if (modalConfig.scrollable) {
       this.renderer.addClass(cmpRef.location.nativeElement, 'component-host-scrollable');
     }
 

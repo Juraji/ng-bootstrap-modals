@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./routes/confirm-modal/confirm-modal.module').then(m => m.ConfirmModalModule)
   },
   {
+    path: 'shade-modal',
+    loadChildren: () => import('./routes/shade-modal/shade-modal.module').then(m => m.ShadeModalModule)
+  },
+  {
     path: '**',
     redirectTo: 'custom-modal'
   }

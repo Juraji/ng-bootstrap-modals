@@ -11,11 +11,29 @@ import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, RootModalConfig} from './configurati
 import {AutoFocusDirective} from './components/auto-focus.directive';
 import {DismissDirective} from './components/dismiss.directive';
 import {ResolveDirective} from './components/resolve.directive';
+import {ShadeModal} from './components/shade/shade.modal';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective, DismissDirective, ResolveDirective],
-  exports: [ModalHostWindowComponent, ModalBackdropComponent, ConfirmModal, AutoFocusDirective, DismissDirective, ResolveDirective],
+  declarations: [
+    // Modal host
+    ModalHostWindowComponent,
+    ModalBackdropComponent,
+
+    // Convenience directives
+    AutoFocusDirective,
+    DismissDirective,
+    ResolveDirective,
+
+    // Predefined modals
+    ConfirmModal,
+    ShadeModal
+  ],
+  exports: [
+    AutoFocusDirective,
+    DismissDirective,
+    ResolveDirective
+  ],
   providers: [Modals]
 })
 export class NgbmodModalsModule {
@@ -23,7 +41,7 @@ export class NgbmodModalsModule {
   /**
    * Root configuration, to be added to the imports of the root module of your app.
    *
-   * @param config Optional global configuration, applied to all modals.
+   * @param config Optional global configuration, applied to all modals (except predefined modals).
    */
   public static forRoot(config?: RootModalConfig): ModuleWithProviders<NgbmodModalsModule> {
     const rootConfigProvider: ValueProvider = {

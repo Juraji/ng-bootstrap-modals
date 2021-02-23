@@ -9,8 +9,8 @@ import {map} from 'rxjs/operators';
 })
 export class CustomModalsPage {
 
-  readonly exampleCode = [
-    {file: 'home.page.ts', contents: require(`!raw-loader!src/app/code/custom-modals/home.page.ts.txt`).default},
+  readonly examples: ExampleCodeMap[] = [
+    {file: 'example.component.ts', contents: require(`!raw-loader!src/app/code/custom-modals/example.component.ts.txt`).default},
     {file: 'example.modal.ts', contents: require(`!raw-loader!src/app/code/custom-modals/example.modal.ts.txt`).default},
     {file: 'example.modal.html', contents: require(`!raw-loader!src/app/code/custom-modals/example.modal.html.txt`).default},
     {file: 'app.module.ts', contents: require(`!raw-loader!src/app/code/app.module.ts.txt`).default},

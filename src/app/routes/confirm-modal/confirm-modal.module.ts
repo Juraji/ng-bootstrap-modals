@@ -5,7 +5,7 @@ import {ConfirmModalRoutingModule} from './confirm-modal-routing.module';
 import {ConfirmModalPage} from './confirm-modal/confirm-modal.page';
 import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
 import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
-import {CodeHighlightingModule} from '../../@components/code-highlighting';
+import {ExampleCodeModule} from '../../@components/example-code';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import {CodeHighlightingModule} from '../../@components/code-highlighting';
     ConfirmModalRoutingModule,
     NgbmodModalsModule,
     NgbNavModule,
-    CodeHighlightingModule
+    ExampleCodeModule
   ]
 })
 export class ConfirmModalModule {

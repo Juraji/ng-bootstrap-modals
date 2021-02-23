@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4>Confirm modal</h4>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <button class="btn btn-primary mr-4" (click)="onBlockingShade()">Default blocking shade with message</button>
+        <button class="btn btn-primary mr-4" (click)="onShadeWithIndeterminateProgress()">Shade with indeterminate progress</button>
+        <button class="btn btn-primary mr-4" (click)="onShadeWithProgress()">Shade with incrementing progress</button>
+      </div>
+
+      <app-example-code [examples]="examples"></app-example-code>
+    </div>
+  </div>
+</div>

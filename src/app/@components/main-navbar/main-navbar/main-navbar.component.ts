@@ -19,6 +19,7 @@ export class MainNavbarComponent implements OnInit {
   readonly links: Link[] = [
     {label: 'Custom Modal', url: '/custom-modal'},
     {label: 'Confirm', url: '/confirm-modal'},
+    {label: 'Blocking Shade', url: '/shade-modal'},
   ];
 
   constructor() {
