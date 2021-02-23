@@ -40,7 +40,7 @@ export class ShadeModalPage {
   }
 
   onShadeWithProgress() {
-    const message = 'I am a shade with a progressbar.';
+    const message = 'I am a shade with a progressbar. Hold on while I load...';
 
     const progress = concat(
       of(0).pipe(delay(2000)),
