@@ -174,6 +174,12 @@ export class ModalHostService {
       this.renderer.addClass(cmpRef.location.nativeElement, 'component-host-scrollable');
     }
 
+    if (!!modalConfig.windowClass) {
+      modalConfig.windowClass
+        .split(' ')
+        .forEach(cls => this.renderer.addClass(cmpRef.location.nativeElement, cls));
+    }
+
     return cmpRef.hostView;
   }
 

@@ -31,7 +31,6 @@ export const MODAL_HOST_WINDOW_PROPS: (keyof ModalHostWindowComponent)[] = [
   'centered',
   'keyboard',
   'scrollable',
-  'windowClass'
 ];
 
 @Component({
@@ -53,7 +52,6 @@ export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChange
   @Input() public centered: boolean;
   @Input() public keyboard: boolean;
   @Input() public scrollable: boolean;
-  @Input() public windowClass: string;
 
   @ViewChild('modalContentOutlet', {static: true, read: ViewContainerRef})
   public readonly modalContentOutlet: ViewContainerRef;
@@ -100,10 +98,6 @@ export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChange
     if (changes.hasOwnProperty('size') || changes.hasOwnProperty('centered') || changes.hasOwnProperty('scrollable')) {
       this.updateClassList();
     }
-
-    if (changes.hasOwnProperty('windowClass')) {
-      this.updateHostClassList();
-    }
   }
 
   public ngOnDestroy(): void {
@@ -139,12 +133,6 @@ export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChange
       size: 'modal-' + this.size,
       centered: 'modal-dialog-centered',
       scrollable: 'modal-dialog-scrollable'
-    });
-  }
-
-  private updateHostClassList(): void {
-    this.hostClassList = buildClassList<ModalHostWindowComponent>(this, 'modal d-block', {
-      windowClass: this.windowClass
     });
   }
 }

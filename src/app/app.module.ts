@@ -18,7 +18,9 @@ import {MarkdownModule} from 'ngx-markdown';
     BrowserAnimationsModule,
     AppRoutingModule,
     ExampleCodeModule.forRoot(),
-    NgbmodModalsModule.forRoot(),
+    NgbmodModalsModule.forRoot({
+      windowClass: "shadow"
+    }),
     MarkdownModule.forRoot(),
     MainNavbarModule
   ],
