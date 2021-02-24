@@ -1,0 +1,23 @@
+import {Component} from '@angular/core';
+import {Modals} from '@juraji/ng-bootstrap-modals';
+import {of} from 'rxjs';
+import {delay} from 'rxjs/operators';
+
+@Component({
+  selector: 'app-default-shade-example',
+  templateUrl: './home.page.html',
+})
+export class ShadeModalPage {
+  constructor(private readonly modals: Modals) {}
+
+  onBlockingShade() {
+    const message = 'I am a blocking shade with HTML.' +
+      '<br/><span class="text-info font-italic">I will be dismissed in 10 seconds</span>';
+
+    const shadeRef = this.modals.shade(message);
+
+    of(1)
+      .pipe(delay(10_000))
+      .subscribe(() => shadeRef.dismiss());
+  }
+}

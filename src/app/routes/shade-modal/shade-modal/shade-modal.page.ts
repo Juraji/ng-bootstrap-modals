@@ -7,14 +7,22 @@ import {delay, take} from 'rxjs/operators';
   templateUrl: './shade-modal.page.html',
 })
 export class ShadeModalPage {
-  readonly examples: ExampleCodeMap[] = [
-    {file: 'example.component.ts', contents: require(`!raw-loader!src/app/code/shade-modal/example.component.ts.txt`).default},
+  readonly defaultShadeExamples: ExampleCodeMap[] = [
+    {file: 'default-shade-example.component.ts', contents: require(`!raw-loader!src/app/code/shade-modal/default-shade-example.component.ts.txt`).default},
     {file: 'app.module.ts', contents: require(`!raw-loader!src/app/code/app.module.ts.txt`).default},
   ];
 
-  constructor(
-    private readonly modals: Modals
-  ) {
+  readonly indeterminateProgressShadeExamples: ExampleCodeMap[] = [
+    {file: 'indeterminate-progress-shade-example.component.ts', contents: require(`!raw-loader!src/app/code/shade-modal/indeterminate-progress-shade-example.component.ts.txt`).default},
+    {file: 'app.module.ts', contents: require(`!raw-loader!src/app/code/app.module.ts.txt`).default},
+  ];
+
+  readonly progressShadeExamples: ExampleCodeMap[] = [
+    {file: 'progress-shade-example.component.ts', contents: require(`!raw-loader!src/app/code/shade-modal/progress-shade-example.component.ts.txt`).default},
+    {file: 'app.module.ts', contents: require(`!raw-loader!src/app/code/app.module.ts.txt`).default},
+  ];
+
+  constructor(private readonly modals: Modals) {
   }
 
   onBlockingShade() {

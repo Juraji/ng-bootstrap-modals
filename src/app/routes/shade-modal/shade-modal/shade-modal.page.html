@@ -1,20 +1,55 @@
 <div class="container">
-  <div class="card">
+  <div class="alert alert-warning">
+    The blocking shade is not yet available. It will be added in a future release!
+  </div>
+  <h1>Shade Modals</h1>
+  <p>
+    The Blocking Shade modal is designed to block a user from the UI during a long running task.
+  </p>
+  <p>
+    It has support for displaying progress, by supplying an observable which emits the progress from 0 until 100.<br />
+    <span class="font-italic">When nothing is emitted from the observable, or it is empty, the shade will display an indeterminate progress bar.</span>
+  </p>
+
+  <div class="card mb-2">
     <div class="card-header">
-      <h4>Blocking shade</h4>
+      <h4>Try it out!</h4>
     </div>
     <div class="card-body">
-      <div class="alert alert-warning">
-        The blocking shade is not yet available. It will be added in a future release!
-      </div>
 
       <div class="mb-3">
         <button class="btn btn-primary mr-4" (click)="onBlockingShade()">Default blocking shade with message</button>
+      </div>
+
+      <app-example-code [examples]="defaultShadeExamples"></app-example-code>
+    </div>
+  </div>
+
+  <div class="card mb-2">
+    <div class="card-header">
+      <h4>Try it out!</h4>
+    </div>
+    <div class="card-body">
+
+      <div class="mb-3">
         <button class="btn btn-primary mr-4" (click)="onShadeWithIndeterminateProgress()">Shade with indeterminate progress</button>
+      </div>
+
+      <app-example-code [examples]="indeterminateProgressShadeExamples"></app-example-code>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h4>Try it out!</h4>
+    </div>
+    <div class="card-body">
+
+      <div class="mb-3">
         <button class="btn btn-primary mr-4" (click)="onShadeWithProgress()">Shade with incrementing progress</button>
       </div>
 
-      <app-example-code [examples]="examples"></app-example-code>
+      <app-example-code [examples]="progressShadeExamples"></app-example-code>
     </div>
   </div>
 </div>
