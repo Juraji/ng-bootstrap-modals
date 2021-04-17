@@ -1,4 +1,4 @@
-import {AfterViewInit, Directive, ElementRef} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, Input} from '@angular/core';
 
 const AUTO_FOCUS_ELEMENTS_SELECTOR =
   'a[href][ngbmodAutoFocus],' +
@@ -10,11 +10,14 @@ const AUTO_FOCUS_ELEMENTS_SELECTOR =
   '[tabindex][ngbmodAutoFocus]:not([tabindex=\'-1\']),';
 
 /**
- * When added to a control within your modal component, this directive will set focus the element.
+ * When added to a control within your modal component, this directive will set focus to the element.
  * Note that using the component on multiple elements in a view might cause unexpected behaviour.
  */
 @Directive({selector: AUTO_FOCUS_ELEMENTS_SELECTOR})
 export class AutoFocusDirective implements AfterViewInit {
+
+  @Input()
+  public selectText: boolean = false;
 
   constructor(
     private readonly elementRef: ElementRef,
@@ -22,8 +25,14 @@ export class AutoFocusDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (!!this.elementRef.nativeElement.focus) {
-      this.elementRef.nativeElement.focus();
+    const e = this.elementRef.nativeElement;
+
+    if (typeof e.focus === 'function') {
+      e.focus();
+
+      if (typeof e.select === 'function') {
+        e.select();
+      }
     }
   }
 }
