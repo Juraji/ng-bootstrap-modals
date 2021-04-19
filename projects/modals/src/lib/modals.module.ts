@@ -12,6 +12,7 @@ import {AutoFocusDirective} from './components/auto-focus.directive';
 import {DismissDirective} from './components/dismiss.directive';
 import {ResolveDirective} from './components/resolve.directive';
 import {ShadeModal} from './components/shade/shade.modal';
+import { ModalFormDirective } from './components/modal-form.directive';
 
 @NgModule({
   imports: [CommonModule],
@@ -27,7 +28,8 @@ import {ShadeModal} from './components/shade/shade.modal';
 
     // Predefined modals
     ConfirmModal,
-    ShadeModal
+    ShadeModal,
+    ModalFormDirective
   ],
   exports: [
     AutoFocusDirective,
