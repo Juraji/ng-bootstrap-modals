@@ -25,16 +25,17 @@ import { ModalFormDirective } from './components/modal-form.directive';
     AutoFocusDirective,
     DismissDirective,
     ResolveDirective,
+    ModalFormDirective,
 
     // Predefined modals
     ConfirmModal,
-    ShadeModal,
-    ModalFormDirective
+    ShadeModal
   ],
   exports: [
     AutoFocusDirective,
     DismissDirective,
-    ResolveDirective
+    ResolveDirective,
+    ModalFormDirective
   ],
   providers: [Modals]
 })
