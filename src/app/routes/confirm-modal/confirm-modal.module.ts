@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {ConfirmModalRoutingModule} from './confirm-modal-routing.module';
 import {ConfirmModalPage} from './confirm-modal/confirm-modal.page';
-import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
+import {ModalsModule} from '@juraji/ng-bootstrap-modals';
 import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {ExampleCodeModule} from '../../@components/example-code';
 
@@ -13,7 +13,7 @@ import {ExampleCodeModule} from '../../@components/example-code';
   imports: [
     CommonModule,
     ConfirmModalRoutingModule,
-    NgbmodModalsModule,
+    ModalsModule,
     NgbNavModule,
     ExampleCodeModule
   ]

@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
+import {ModalsModule} from '@juraji/ng-bootstrap-modals';
 import {MainNavbarModule} from './@components/main-navbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ExampleCodeModule} from './@components/example-code';
@@ -18,7 +18,7 @@ import {MarkdownModule} from 'ngx-markdown';
     BrowserAnimationsModule,
     AppRoutingModule,
     ExampleCodeModule.forRoot(),
-    NgbmodModalsModule.forRoot({
+    ModalsModule.forRoot({
       windowClass: "shadow"
     }),
     MarkdownModule.forRoot(),

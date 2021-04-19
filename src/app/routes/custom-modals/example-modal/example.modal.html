@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">{{data.title}}</h4>
-  <button type="button" class="close" aria-label="Close" ngbmodDismiss>
+  <button type="button" class="close" aria-label="Close" modalDismiss>
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -8,7 +8,7 @@
   <p>{{data.content}}</p>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-danger" ngbmodDismiss>Dismiss</button>
-  <button type="submit" class="btn btn-primary" [ngbmodResolve]="directiveResolveValue">Resolve via directive</button>
-  <button type="submit" class="btn btn-primary" ngbmodAutoFocus (click)="onCustomResolve()">Resolve via modalRef</button>
+  <button type="button" class="btn btn-outline-danger" modalDismiss>Dismiss</button>
+  <button type="submit" class="btn btn-primary" [modalResolve]="directiveResolveValue">Resolve via directive</button>
+  <button type="submit" class="btn btn-primary" modalAutoFocus (click)="onCustomResolve()">Resolve via modalRef</button>
 </div>

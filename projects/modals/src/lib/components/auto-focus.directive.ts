@@ -1,13 +1,13 @@
 import {AfterViewInit, Directive, ElementRef, Input} from '@angular/core';
 
 const AUTO_FOCUS_ELEMENTS_SELECTOR =
-  'a[href][ngbmodAutoFocus],' +
-  'button[ngbmodAutoFocus]:not([disabled]),' +
-  'input[ngbmodAutoFocus]:not([disabled]):not([type=\'hidden\']),' +
-  'select[ngbmodAutoFocus]:not([disabled]),' +
-  'textarea[ngbmodAutoFocus]:not([disabled]),' +
-  '[contenteditable][ngbmodAutoFocus],' +
-  '[tabindex][ngbmodAutoFocus]:not([tabindex=\'-1\']),';
+  'a[href][modalAutoFocus],' +
+  'button[modalAutoFocus]:not([disabled]),' +
+  'input[modalAutoFocus]:not([disabled]):not([type=\'hidden\']),' +
+  'select[modalAutoFocus]:not([disabled]),' +
+  'textarea[modalAutoFocus]:not([disabled]),' +
+  '[contenteditable][modalAutoFocus],' +
+  '[tabindex][modalAutoFocus]:not([tabindex=\'-1\']),';
 
 /**
  * When added to a control within your modal component, this directive will set focus to the element.

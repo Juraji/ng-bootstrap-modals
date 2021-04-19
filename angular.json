@@ -113,7 +113,7 @@
       "projectType": "library",
       "root": "projects/modals",
       "sourceRoot": "projects/modals/src",
-      "prefix": "ngbmod",
+      "prefix": "modal",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {CustomModalsRoutingModule} from './custom-modals-routing.module';
 import {CustomModalsPage} from './custom-modals.page';
 import {ExampleModal} from './example-modal/example.modal';
-import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
+import {ModalsModule} from '@juraji/ng-bootstrap-modals';
 import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {ExampleCodeModule} from '../../@components/example-code';
 
@@ -13,7 +13,7 @@ import {ExampleCodeModule} from '../../@components/example-code';
   imports: [
     CommonModule,
     CustomModalsRoutingModule,
-    NgbmodModalsModule,
+    ModalsModule,
     NgbNavModule,
     ExampleCodeModule
   ]

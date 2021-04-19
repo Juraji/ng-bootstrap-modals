@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {ShadeModalRoutingModule} from './shade-modal-routing.module';
 import {ShadeModalPage} from './shade-modal/shade-modal.page';
-import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
+import {ModalsModule} from '@juraji/ng-bootstrap-modals';
 import {ExampleCodeModule} from '../../@components/example-code';
 
 
@@ -13,7 +13,7 @@ import {ExampleCodeModule} from '../../@components/example-code';
     CommonModule,
     ShadeModalRoutingModule,
     ExampleCodeModule,
-    NgbmodModalsModule
+    ModalsModule
   ]
 })
 export class ShadeModalModule { }

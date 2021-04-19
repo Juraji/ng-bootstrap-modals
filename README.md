@@ -55,7 +55,7 @@ For more information on Github personal access tokens check [your developer sett
 1. Install `@juraji/ng-bootstrap-modals`.
     * For Yarn use `yarn add @juraji/ng-bootstrap-modals`.
     * For NPM use `npm install @juraji/ng-bootstrap-modals`.
-2. Add `NgbmodModule.forRoot()` to your root module.
+2. Add `ModalModule.forRoot()` to your root module.
 3. Use the `Modals` service to open components as modals.
 
 For examples visit [the demo site](https://juraji.github.io/ng-bootstrap-modals)!

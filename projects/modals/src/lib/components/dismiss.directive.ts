@@ -2,7 +2,7 @@ import {Directive, HostListener} from '@angular/core';
 import {ModalRef} from '../util/modal-ref';
 
 @Directive({
-  selector: '[ngbmodDismiss]'
+  selector: '[modalDismiss]'
 })
 export class DismissDirective {
 

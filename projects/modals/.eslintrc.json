@@ -20,7 +20,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "ngbmod",
+            "prefix": "modal",
             "style": "kebab-case"
           }
         ],
@@ -28,7 +28,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "ngbmod",
+            "prefix": "modal",
             "style": "camelCase"
           }
         ]

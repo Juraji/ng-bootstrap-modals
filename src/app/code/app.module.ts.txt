@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgbmodModalsModule} from '@juraji/ng-bootstrap-modals';
+import {ModalsModule} from '@juraji/ng-bootstrap-modals';
 import {AppComponent} from './app.component';
 
 @NgModule({
@@ -18,7 +18,7 @@ import {AppComponent} from './app.component';
     // This will initialize the module and allow you to globally override settings.
     // Individual modal invocations can override these settings, via the config parameter in Modals#open().
     // Omit the config parameter to use the defaults.
-    NgbmodModalsModule.forRoot({
+    ModalsModule.forRoot({
       scrollable: true,       // Allow scrolling modals
       size: null,             // Set a global size, one of 'sm', 'md' or 'lg'
       ariaLabelledBy: null,   // Accessibility setting, auto works best

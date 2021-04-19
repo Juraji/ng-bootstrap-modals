@@ -3,7 +3,7 @@
 </div>
 <div class="modal-body" [innerHTML]="confirmData.message"></div>
 <div class="modal-footer">
-  <button type="submit" class="btn btn-primary mr-1" ngbmodResolve="OK" ngbmodAutoFocus>
+  <button type="submit" class="btn btn-primary mr-1" modalResolve="OK" modalAutoFocus>
     <ng-container *ngIf="!!confirmData.confirmLabel; else defaultConfirmLabel">
       {{ confirmData.confirmLabel }}
     </ng-container>
@@ -11,7 +11,7 @@
       <ng-container i18n="@@modals-default-confirm-label">Yes</ng-container>
     </ng-template>
   </button>
-  <button type="button" class="btn btn-default" ngbmodDismiss>
+  <button type="button" class="btn btn-default" modalDismiss>
     <ng-container *ngIf="!!confirmData.confirmLabel; else defaultCancelLabel">
       {{ confirmData.cancelLabel }}
     </ng-container>

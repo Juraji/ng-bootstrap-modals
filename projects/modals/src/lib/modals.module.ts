@@ -36,21 +36,21 @@ import {ShadeModal} from './components/shade/shade.modal';
   ],
   providers: [Modals]
 })
-export class NgbmodModalsModule {
+export class ModalsModule {
 
   /**
    * Root configuration, to be added to the imports of the root module of your app.
    *
    * @param config Optional global configuration, applied to all modals (except predefined modals).
    */
-  public static forRoot(config?: RootModalConfig): ModuleWithProviders<NgbmodModalsModule> {
+  public static forRoot(config?: RootModalConfig): ModuleWithProviders<ModalsModule> {
     const rootConfigProvider: ValueProvider = {
       provide: MODAL_CONFIG,
       useValue: Object.assign({}, DEFAULT_MODAL_CONFIG, config)
     };
 
     return {
-      ngModule: NgbmodModalsModule,
+      ngModule: ModalsModule,
       providers: [
         ModalHostService,
         ScrollBarAdjustService,
