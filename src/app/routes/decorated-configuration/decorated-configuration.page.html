@@ -1,0 +1,226 @@
+<div class="container">
+  <h1>Decorated configuration</h1>
+
+  <p>
+    New and improved per modal configuration!
+  </p>
+  <p>
+    I was struggling with having the modal configuration decoupled from the actual modal component.<br/>
+    For instance a modal, which is designed to be large or fullscreen, had to be configured like this on every call.
+  </p>
+  <p>
+    Introducing Decorated Configuration.<br/>
+    For each of the configuration options there is now a convenient decorator which can be put on the modal component
+    class.
+  </p>
+
+  <div class="alert alert-info">
+    The decorators are to be set on class-level, like Angular's <code>@Component(...)</code> decorator.
+    Check the examples below!<br/>
+    All decorators stack, with the last defined decorator of the same type taking precedence over the previous
+    decorators!
+  </div>
+
+  <div class="alert alert-info">
+    <p>Configuration is applied using a merging strategy in the following order:</p>
+    <ol>
+      <li>Default configuration</li>
+      <li>Root module configuration <i>(optionally supplied when calling <code>ModalsModule.forRoot(...)</code>)</i>
+      </li>
+      <li>Decorated configuration <i>(From top to bottom)</i></li>
+      <li>Instance configuration <i>(optionally supplied when calling <code>Modals.open(...)</code>)</i></li>
+    </ol>
+  </div>
+
+  <div class="alert alert-warning">
+    NG Bootstrap Modals is fully compatible with Bootstrap 4 and 5. This means some options are for a particular version
+    only. Not to worry, I've noted that down below as well.
+  </div>
+
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Decorator</th>
+      <th>Behaviour</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>scrollable</td>
+      <td>
+        <code>@ModalScrollableEnabled()</code>
+      </td>
+      <td>Enable modal scrolling (default)</td>
+    </tr>
+    <tr>
+      <td>scrollable</td>
+      <td>
+        <code>@ModalScrollableDisabled()</code>
+      </td>
+      <td>Disable modal scrolling</td>
+    </tr>
+    <tr>
+      <td>centered</td>
+      <td>
+        <code>@ModalCenteredEnabled()</code>
+      </td>
+      <td>Enable vertically centering modal (default)</td>
+    </tr>
+    <tr>
+      <td>centered</td>
+      <td>
+        <code>@ModalCenteredDisabled()</code>
+      </td>
+      <td>Disable vertically centering modal, modal floats to top of page (with some margin on top)</td>
+    </tr>
+    <tr>
+      <td>keyboard</td>
+      <td>
+        <code>@ModalKeyboardEnabled()</code>
+      </td>
+      <td>Enable keyboard bindings, like escape to close etc. (default)</td>
+    </tr>
+    <tr>
+      <td>keyboard</td>
+      <td>
+        <code>@ModalKeyboardDisabled()</code>
+      </td>
+      <td>Disable keyboard bindings</td>
+    </tr>
+    <tr>
+      <td>backdrop</td>
+      <td>
+        <code>@ModalBackdropEnabled()</code>
+      </td>
+      <td>Enable modal backdrop (default)</td>
+    </tr>
+    <tr>
+      <td>backdrop</td>
+      <td>
+        <code>@ModalBackdropDisabled()</code>
+      </td>
+      <td>Disable modal backdrop</td>
+    </tr>
+    <tr>
+      <td>backdrop</td>
+      <td>
+        <code>@ModalBackdropStatic()</code>
+      </td>
+      <td>Set static modal backdrop, does not respond to clicks</td>
+    </tr>
+    <tr>
+      <td>ariaLabelledBy</td>
+      <td>
+        <code>@ModalAriaLabelledBy()</code>
+      </td>
+      <td>Set ARIA labelled by property (for screen readers and stuff)</td>
+    </tr>
+    <tr>
+      <td>windowClass</td>
+      <td>
+        <code>@ModalWindowClass()</code>
+      </td>
+      <td>Add to modal window class (space separated)</td>
+    </tr>
+    <tr>
+      <td>zIndex</td>
+      <td>
+        <code>@ModalZIndex()</code>
+      </td>
+      <td>Set modal z-index</td>
+    </tr>
+    <tr>
+      <td>backdropClass</td>
+      <td>
+        <code>@ModalBackdropClass()</code>
+      </td>
+      <td>Add to modal backdrop class (space separated)</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>
+        <code>@ModalSizeSm()</code>
+      </td>
+      <td>Set modal size to small</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>
+        <code>@ModalSizeMd()</code>
+      </td>
+      <td>Set modal size to medium</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>
+        <code>@ModalSizeLg()</code>
+      </td>
+      <td>Set modal size to large</td>
+    </tr>
+    <tr>
+      <td>size <small class="text-muted">(Bootstrap@5+ only)</small></td>
+      <td>
+        <code>@ModalFullScreen()</code>
+      </td>
+      <td>Set modal size to fullscreen</td>
+    </tr>
+    <tr>
+      <td>size <small class="text-muted">(Bootstrap@5+ only)</small></td>
+      <td>
+        <code>@ModalFullScreenSmDown()</code>
+      </td>
+      <td>Set modal size to fullscreen, only on screens smaller than sm break point<br />
+        <small class="text-muted">(combines with sm, md and lg decorators)</small>
+      </td>
+    </tr>
+    <tr>
+      <td>size <small class="text-muted">(Bootstrap@5+ only)</small></td>
+      <td>
+        <code>@ModalFullScreenMdDown()</code>
+      </td>
+      <td>Set modal size to fullscreen, only on screens smaller than md break point<br />
+        <small class="text-muted">(combines with sm, md and lg decorators)</small>
+      </td>
+    </tr>
+    <tr>
+      <td>size <small class="text-muted">(Bootstrap@5+ only)</small></td>
+      <td>
+        <code>@ModalFullScreenLgDown()</code>
+      </td>
+      <td>Set modal size to fullscreen, only on screens smaller than lg break point<br />
+        <small class="text-muted">(combines with sm, md and lg decorators)</small>
+      </td>
+    </tr>
+    <tr>
+      <td>size <small class="text-muted">(Bootstrap@5+ only)</small></td>
+      <td>
+        <code>@ModalFullScreenXlDown()</code>
+      </td>
+      <td>Set modal size to fullscreen, only on screens smaller than xl break point<br />
+        <small class="text-muted">(combines with sm, md and lg decorators)</small>
+      </td>
+    </tr>
+    <tr>
+      <td>size <small class="text-muted">(Bootstrap@5+ only)</small></td>
+      <td>
+        <code>@ModalFullScreenXxlDown()</code>
+      </td>
+      <td>Set modal size to fullscreen, only on screens smaller than xxl break point<br />
+        <small class="text-muted">(combines with sm, md and lg decorators)</small>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <div class="card-header">
+      <h4>Try it out!</h4>
+    </div>
+    <div class="card-body">
+      <button class="btn btn-primary mb-3" (click)="onOpenDecoratedModal()">Open decorated modal...</button>
+
+      <app-example-code [examples]="examples"></app-example-code>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4 class="modal-title">Decorated modal</h4>
+  <button type="button" class="btn-close" aria-label="Close" modalDismiss></button>
+</div>
+<div class="modal-body">
+  <p>
+    I have been set to full screen and do not close on escape,
+    because of the decorators <code>@ModalFullScreen()</code> and <code>@ModalKeyboardDisabled()</code>!
+  </p>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary" modalResolve>Got it!</button>
+</div>

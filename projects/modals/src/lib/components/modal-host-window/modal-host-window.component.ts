@@ -72,6 +72,7 @@ export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChange
       fromEvent<KeyboardEvent>(this.elementRef.nativeElement, 'keyup')
         .pipe(
           takeUntil(this.dismissed),
+          filter(() => this.keyboard),
           filter(e => e.key === 'Escape')
         )
         .subscribe(e =>

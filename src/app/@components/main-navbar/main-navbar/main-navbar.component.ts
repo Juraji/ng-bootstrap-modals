@@ -21,6 +21,7 @@ export class MainNavbarComponent implements OnInit {
     {label: 'Confirm', url: '/confirm-modal'},
     {label: 'Blocking Shade', url: '/shade-modal'},
     {label: 'Sizing', url: '/modal-sizing'},
+    {label: 'Decorators', url: '/decorated-configuration'},
   ];
 
   constructor() {

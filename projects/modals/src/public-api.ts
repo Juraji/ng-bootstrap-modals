@@ -11,3 +11,28 @@ export {ModalFormDirective} from './lib/components/modal-form.directive';
 export {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, ModalConfig, ModalSize} from './lib/configuration/modal-config';
 export {MODAL_DATA} from './lib/util/modal-data';
 export {ModalRef} from './lib/util/modal-ref';
+
+export {
+  ModalScrollableEnabled,
+  ModalScrollableDisabled,
+  ModalCenteredEnabled,
+  ModalCenteredDisabled,
+  ModalKeyboardEnabled,
+  ModalKeyboardDisabled,
+  ModalBackdropStatic,
+  ModalBackdropEnabled,
+  ModalBackdropDisabled,
+  ModalAriaLabelledBy,
+  ModalWindowClass,
+  ModalZIndex,
+  ModalBackdropClass,
+  ModalSizeSm,
+  ModalSizeMd,
+  ModalSizeLg,
+  ModalFullScreen,
+  ModalFullScreenSmDown,
+  ModalFullScreenMdDown,
+  ModalFullScreenLgDown,
+  ModalFullScreenXlDown,
+  ModalFullScreenXxlDown,
+} from './lib/configuration/configuration-decorators';

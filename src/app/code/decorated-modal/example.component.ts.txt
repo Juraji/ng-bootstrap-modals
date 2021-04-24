@@ -1,0 +1,22 @@
+import {Component, OnInit} from '@angular/core';
+import {Modals} from '@juraji/ng-bootstrap-modals';
+import {ExampleModal} from './example-modal/example.modal';
+
+@Component({
+  templateUrl: './example.component.html',
+  styleUrls: ['./example.component.css']
+})
+export class ExampleComponent implements OnInit {
+
+  constructor(
+    private readonly modals: Modals
+  ) {
+  }
+
+  ngOnInit(): void {
+  }
+
+  onOpenDecoratedModal() {
+    this.modals.open(ExampleModal);
+  }
+}

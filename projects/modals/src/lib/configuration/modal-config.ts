@@ -17,16 +17,20 @@ export const DEFAULT_MODAL_CONFIG: RootModalConfig = {
   zIndex: 1050
 };
 
-export type ModalSize =
+export type ModalSizeStandardOpt =
   | 'sm'
   | 'md'
-  | 'lg'
+  | 'lg';
+
+export type ModalSizeFullScreenOpt =
   | 'fullscreen'
   | 'fullscreen-sm-down'
   | 'fullscreen-md-down'
   | 'fullscreen-lg-down'
   | 'fullscreen-xl-down'
-  | 'fullscreen-xxl-down'
+  | 'fullscreen-xxl-down';
+
+export type ModalSize = ModalSizeStandardOpt | ModalSizeFullScreenOpt;
 
 /**
  * Global modal configuration interface

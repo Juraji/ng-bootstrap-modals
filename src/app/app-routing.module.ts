@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./routes/modal-sizing/modal-sizing.module').then(m => m.ModalSizingModule)
   },
   {
+    path: 'decorated-configuration',
+    loadChildren: () => import('./routes/decorated-configuration/decorated-configuration.module').then(m => m.DecoratedConfigurationModule)
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

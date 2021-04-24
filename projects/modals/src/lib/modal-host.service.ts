@@ -26,6 +26,7 @@ import {ModalContent} from './util/modal-content';
 import {MODAL_DATA} from './util/modal-data';
 import {ModalRef} from './util/modal-ref';
 import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
+import {getDecoratorConfig} from './configuration/configuration-decorators';
 
 @Injectable({providedIn: 'root'})
 export class ModalHostService {
@@ -62,7 +63,12 @@ export class ModalHostService {
     content: ModalContent,
     config?: ModalConfig
   ): ModalRef<R> {
-    config = Object.assign({}, this.moduleConfig, config);
+    config = Object.assign(
+      {},
+      this.moduleConfig,
+      getDecoratorConfig(content),
+      config
+    );
 
     const containerEl = this.document.body;
     const revertScrollbarPadding = this.scrollBarAdjust.compensate();
