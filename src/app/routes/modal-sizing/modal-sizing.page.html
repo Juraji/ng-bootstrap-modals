@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Custom modals</h1>
+
+  <p>
+    Have any component be rendered in a modal-style pop-up.
+  </p>
+  <p>
+    You can use Bootstrap's modal layout, like in <code>example.modal.html</code> below, or use your own component.<br/>
+    Say for instance a file-browser, or another website, if you so please.
+  </p>
+
+  <div class="card">
+    <div class="card-header">
+      <h4>Try it out!</h4>
+    </div>
+    <div class="card-body">
+      <ul class="list-unstyled">
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('sm')">Open sm modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('md')">Open md modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('lg')">Open lg modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('fullscreen')">Open fullscreen modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('fullscreen-sm-down')">Open fullscreen-sm-down modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('fullscreen-md-down')">Open fullscreen-md-down modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('fullscreen-lg-down')">Open fullscreen-lg-down modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('fullscreen-xl-down')">Open fullscreen-xl-down modal...
+      </button></li>
+        <li><button class="btn btn-primary mb-2"
+              (click)="onSizedModal('fullscreen-xxl-down')">Open fullscreen-xxl-down modal...
+      </button></li>
+      </ul>
+      <app-example-code [examples]="examples"></app-example-code>
+    </div>
+  </div>
+</div>

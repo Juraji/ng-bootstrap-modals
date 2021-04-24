@@ -19,7 +19,7 @@
     "@angular/platform-browser-dynamic": "11.x.x",
     "@angular/router": "11.x.x",
     "@ng-bootstrap/ng-bootstrap": "^9.x.x",
-    "bootstrap": "4.x.x",
+    "bootstrap": "^5.0.0-beta3",
     "highlight.js": "^10.x.x",
     "ngx-highlightjs": "^4.x.x",
     "ngx-markdown": "^11.1.0",

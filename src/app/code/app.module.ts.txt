@@ -20,7 +20,7 @@ import {AppComponent} from './app.component';
     // Omit the config parameter to use the defaults.
     ModalsModule.forRoot({
       scrollable: true,       // Allow scrolling modals
-      size: null,             // Set a global size, one of 'sm', 'md' or 'lg'
+      size: null,             // Set a global size, one of 'sm', 'md' or 'lg' or a fullscreen option
       ariaLabelledBy: null,   // Accessibility setting, auto works best
       centered: true,         // Vertically center modals
       keyboard: true,         // Enable the ESC button closing the modal

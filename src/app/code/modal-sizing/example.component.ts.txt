@@ -1,0 +1,23 @@
+import {Component} from '@angular/core';
+import {Modals} from '@juraji/ng-bootstrap-modals';
+import {ExampleModal} from './example.modal';
+
+@Component({
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss']
+})
+export class HomePage {
+
+  constructor(
+    private readonly modals: Modals
+  ) {
+  }
+
+  onOpenLargeModal() {
+    this.modals.open(ExampleModal, {size: 'lg'});
+  }
+
+  onFullScreenModal() {
+    this.modals.open(ExampleModal, {size: 'fullscreen'});
+  }
+}

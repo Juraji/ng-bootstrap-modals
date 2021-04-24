@@ -17,13 +17,24 @@ export const DEFAULT_MODAL_CONFIG: RootModalConfig = {
   zIndex: 1050
 };
 
+export type ModalSize =
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'fullscreen'
+  | 'fullscreen-sm-down'
+  | 'fullscreen-md-down'
+  | 'fullscreen-lg-down'
+  | 'fullscreen-xl-down'
+  | 'fullscreen-xxl-down'
+
 /**
  * Global modal configuration interface
  */
 export interface RootModalConfig {
   // Modal host window config
   scrollable?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  size?: ModalSize;
   ariaLabelledBy?: string;
   centered?: boolean;
   keyboard?: boolean;

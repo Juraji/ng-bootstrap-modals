@@ -20,6 +20,7 @@ export class MainNavbarComponent implements OnInit {
     {label: 'Custom Modal', url: '/custom-modal'},
     {label: 'Confirm', url: '/confirm-modal'},
     {label: 'Blocking Shade', url: '/shade-modal'},
+    {label: 'Sizing', url: '/modal-sizing'},
   ];
 
   constructor() {
