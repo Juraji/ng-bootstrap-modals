@@ -1,5 +1,5 @@
 <div class="modal-body">
-  <p [innerHTML]="message"></p>
+  <p [innerHTML]="message | async"></p>
 
   <ng-container *ngIf="progress | async as p">
     <ng-container [ngSwitch]="p.state">

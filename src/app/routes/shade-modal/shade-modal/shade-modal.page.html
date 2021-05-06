@@ -27,6 +27,24 @@
       <h4>Try it out!</h4>
     </div>
     <div class="card-body">
+      <p>
+        Q: What if I wanted to update the displayed message?<br />
+        A: Well you can supply an Observable, when a new message is emitted, the modal's content is updated.
+      </p>
+
+      <div class="mb-3">
+        <button class="btn btn-primary mr-4" (click)="onBlockingWithObsMessageShade()">Shade with Observable message</button>
+      </div>
+
+      <app-example-code [examples]="shadeWithObsMessageExamples"></app-example-code>
+    </div>
+  </div>
+
+  <div class="card mb-2">
+    <div class="card-header">
+      <h4>Try it out!</h4>
+    </div>
+    <div class="card-body">
 
       <div class="mb-3">
         <button class="btn btn-primary mr-4" (click)="onShadeWithIndeterminateProgress()">Shade with indeterminate progress</button>

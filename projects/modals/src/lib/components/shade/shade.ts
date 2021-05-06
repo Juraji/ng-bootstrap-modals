@@ -1,7 +1,7 @@
 import {Observable} from 'rxjs';
 
 export interface ShadeModalData {
-  message: string;
+  message: string | Observable<string>;
   progress?: Observable<number>;
 }
 
@@ -15,7 +15,7 @@ export interface ShadeRef {
   readonly onComplete: Observable<void>;
 
   /**
-   * Dismiss this busy modal
+   * Dismiss this shade modal
    */
   dismiss(): void;
 }

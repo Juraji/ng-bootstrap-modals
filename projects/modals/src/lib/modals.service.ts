@@ -62,7 +62,7 @@ export class Modals {
    *                 When undefined, emitting undefined or emitting a out-of-range number,
    *                 the modal will display an indefinite progressbar
    */
-  public shade(message: string, progress?: Observable<number>): ShadeRef {
+  public shade(message: string | Observable<string>, progress?: Observable<number>): ShadeRef {
     return this.open<never>(ShadeModal, {
       data: {message, progress} as ShadeModalData,
       scrollable: false,
