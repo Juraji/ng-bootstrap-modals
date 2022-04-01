@@ -1,8 +1,9 @@
 import {Component, Inject} from '@angular/core';
-import {MODAL_DATA} from '../../util/modal-data';
-import {ShadeModalData} from './shade';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+
+import {MODAL_DATA} from '../../util/modal-data';
+import {ShadeModalData} from './shade';
 
 interface ProgressBarUpdate {
   state: 'indefinite' | 'running';
@@ -14,10 +15,10 @@ interface ProgressBarUpdate {
   templateUrl: './shade.modal.html',
 })
 export class ShadeModal {
-  readonly message: Observable<string>;
-  readonly progress?: Observable<ProgressBarUpdate>;
+  public readonly message: Observable<string>;
+  public readonly progress?: Observable<ProgressBarUpdate>;
 
-  constructor(
+  public constructor(
     @Inject(MODAL_DATA) shadeData: ShadeModalData
   ) {
     this.message = typeof shadeData.message === 'string'

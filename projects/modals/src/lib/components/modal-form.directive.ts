@@ -5,13 +5,13 @@ import {Directive, ElementRef, OnInit, Renderer2} from '@angular/core';
 })
 export class ModalFormDirective implements OnInit {
 
-  constructor(
+  public constructor(
     private readonly elementRef: ElementRef,
     private readonly renderer: Renderer2
   ) {
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.renderer.setStyle(
       this.elementRef.nativeElement,
       'display',

@@ -1,21 +1,21 @@
 import {ComponentFactoryResolver, Injectable, Injector} from '@angular/core';
+import {Observable} from 'rxjs';
 
-import {ModalHostService} from './modal-host.service';
-import {ModalConfig} from './configuration/modal-config';
-import {ModalContent} from './util/modal-content';
-import {ModalRef} from './util/modal-ref';
 import {ConfirmModalData} from './components/confirm/confirm';
 import {ConfirmModal} from './components/confirm/confirm.modal';
 import {ShadeModalData, ShadeRef} from './components/shade/shade';
 import {ShadeModal} from './components/shade/shade.modal';
-import {Observable} from 'rxjs';
+import {ModalConfig} from './configuration/modal-config';
+import {ModalHostService} from './modal-host.service';
+import {ModalContent} from './util/modal-content';
+import {ModalRef} from './util/modal-ref';
 
 /**
  * The main service for managing modals
  */
 @Injectable()
 export class Modals {
-  constructor(
+  public constructor(
     private readonly moduleCFR: ComponentFactoryResolver,
     private readonly moduleInjector: Injector,
     private readonly modalHost: ModalHostService
@@ -30,7 +30,7 @@ export class Modals {
    *               When the data property is set you can use the injection token "MODAL_DATA" to inject
    *               the value into the constructor of your modal component.
    */
-  public open<R = any>(content: ModalContent, config?: ModalConfig): ModalRef<R> {
+  public open<R = unknown>(content: ModalContent, config?: ModalConfig): ModalRef<R> {
     return this.modalHost.open(this.moduleCFR, this.moduleInjector, content, config);
   }
 
@@ -43,7 +43,6 @@ export class Modals {
    * @return The ModalRef to the hosted modal
    */
   public confirm(message: string, confirm?: string, cancel?: string): ModalRef<'OK'> {
-    // @ts-ignore
     return this.open(ConfirmModal, {
       data: {
         message,

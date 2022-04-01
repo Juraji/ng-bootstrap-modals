@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { HomeRoutingModule } from './home-routing.module';
-import { HomePage } from './home/home.page';
+import { NgModule } from '@angular/core';
 import {MarkdownModule} from 'ngx-markdown';
+
+import { HomePage } from './home/home.page';
+import { HomeRoutingModule } from './home-routing.module';
 
 
 @NgModule({

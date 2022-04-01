@@ -13,9 +13,9 @@ interface Link {
 })
 export class MainNavbarComponent implements OnInit {
 
-  readonly opened$ = new BehaviorSubject(false);
+  public readonly opened$ = new BehaviorSubject(false);
 
-  readonly links: Link[] = [
+  public readonly links: Link[] = [
     {label: 'Home', url: '/home'},
     {label: 'Custom Modal', url: '/custom-modal'},
     {label: 'Confirm', url: '/confirm-modal'},
@@ -24,13 +24,13 @@ export class MainNavbarComponent implements OnInit {
     {label: 'Decorators', url: '/decorated-configuration'},
   ];
 
-  constructor() {
+  public constructor() {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  onToggleNavigation() {
+  public onToggleNavigation() {
     const next = !this.opened$.value;
     this.opened$.next(next);
   }

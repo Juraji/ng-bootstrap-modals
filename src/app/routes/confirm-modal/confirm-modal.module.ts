@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
-import {ConfirmModalRoutingModule} from './confirm-modal-routing.module';
-import {ConfirmModalPage} from './confirm-modal/confirm-modal.page';
+import {NgModule} from '@angular/core';
 import {ModalsModule} from '@juraji/ng-bootstrap-modals';
 import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
+
 import {ExampleCodeModule} from '../../@components/example-code';
+import {ConfirmModalPage} from './confirm-modal/confirm-modal.page';
+import {ConfirmModalRoutingModule} from './confirm-modal-routing.module';
 
 
 @NgModule({

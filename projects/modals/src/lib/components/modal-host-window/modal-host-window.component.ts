@@ -39,7 +39,6 @@ export const MODAL_HOST_WINDOW_PROPS: (keyof ModalHostWindowComponent)[] = [
 })
 export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   private elementWithFocus: Element;
-  private readonly document: Document;
 
   @HostBinding('@modalFade') public readonly fadeAnimation = true;
   @HostBinding('class') public hostClassList = 'modal d-block';
@@ -56,13 +55,11 @@ export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChange
   @ViewChild('modalContentOutlet', {static: true, read: ViewContainerRef})
   public readonly modalContentOutlet: ViewContainerRef;
 
-  constructor(
+  public constructor(
     private readonly elementRef: ElementRef,
     private readonly ngZone: NgZone,
-    @Inject(DOCUMENT) document: any
+    @Inject(DOCUMENT) private readonly document: Document
   ) {
-    // Workaround for https://github.com/angular/angular/issues/20351
-    this.document = document;
   }
 
   public ngOnInit(): void {
@@ -124,8 +121,8 @@ export class ModalHostWindowComponent implements OnInit, AfterViewInit, OnChange
     }
   }
 
-  public dismiss(result?: any): void {
-    this.dismissed.next(result);
+  public dismiss(): void {
+    this.dismissed.next();
     this.dismissed.complete();
   }
 

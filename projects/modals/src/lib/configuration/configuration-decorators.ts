@@ -10,7 +10,7 @@ const setDecoratorProperty = (target, change: RootModalConfig) => {
   }
 };
 
-export const getDecoratorConfig = (target: any): RootModalConfig | undefined => target[DECORATOR_CONFIG_SYMBOL];
+export const getDecoratorConfig = (target: unknown): RootModalConfig | undefined => target[DECORATOR_CONFIG_SYMBOL];
 
 export const ModalScrollableEnabled = (): ClassDecorator =>
   target => setDecoratorProperty(target, {scrollable: true});

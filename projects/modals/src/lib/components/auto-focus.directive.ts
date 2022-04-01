@@ -17,14 +17,14 @@ const AUTO_FOCUS_ELEMENTS_SELECTOR =
 export class AutoFocusDirective implements AfterViewInit {
 
   @Input()
-  public selectText: boolean = false;
+  public selectText = false;
 
-  constructor(
+  public constructor(
     private readonly elementRef: ElementRef,
   ) {
   }
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     const e = this.elementRef.nativeElement;
 
     if (typeof e.focus === 'function') {

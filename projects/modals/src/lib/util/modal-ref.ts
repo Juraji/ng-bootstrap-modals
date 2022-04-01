@@ -6,7 +6,7 @@ interface ModalState<T> {
   result?: T;
 }
 
-export class ModalRef<R = any> {
+export class ModalRef<R = unknown> {
   private readonly states = new Subject<ModalState<R>>();
 
   /**
@@ -24,7 +24,7 @@ export class ModalRef<R = any> {
    */
   public readonly onComplete: Observable<void>;
 
-  constructor() {
+  public constructor() {
     this.onResolved = this.states.pipe(
       filter(s => s.state === 'resolved'),
       map(s => s.result)

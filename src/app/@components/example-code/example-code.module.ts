@@ -1,9 +1,10 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ExampleCodeComponent} from './example-code/example-code.component';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 import {HighlightOptions} from 'ngx-highlightjs/lib/highlight.model';
-import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
+
+import {ExampleCodeComponent} from './example-code/example-code.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
   exports: [ExampleCodeComponent]
 })
 export class ExampleCodeModule {
-  static forRoot(): ModuleWithProviders<ExampleCodeModule> {
+  public static forRoot(): ModuleWithProviders<ExampleCodeModule> {
     return {
       ngModule: ExampleCodeModule,
       providers: [
@@ -28,7 +29,6 @@ export class ExampleCodeModule {
               typescript: () => import('highlight.js/lib/languages/typescript'),
               xml: () => import('highlight.js/lib/languages/xml')
             },
-            config: {}
           } as HighlightOptions
         }
       ]

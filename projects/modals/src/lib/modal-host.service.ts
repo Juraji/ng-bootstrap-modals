@@ -19,14 +19,17 @@ import {Subject} from 'rxjs';
 import {filter} from 'rxjs/operators';
 
 import {MODAL_BACKDROP_PROPS, ModalBackdropComponent} from './components/modal-backdrop/modal-backdrop.component';
-import {MODAL_HOST_WINDOW_PROPS, ModalHostWindowComponent} from './components/modal-host-window/modal-host-window.component';
-import {focusTrap} from './util/focus-trap';
+import {
+  MODAL_HOST_WINDOW_PROPS,
+  ModalHostWindowComponent
+} from './components/modal-host-window/modal-host-window.component';
+import {getDecoratorConfig} from './configuration/configuration-decorators';
 import {MODAL_CONFIG, ModalConfig} from './configuration/modal-config';
+import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
+import {focusTrap} from './util/focus-trap';
 import {ModalContent} from './util/modal-content';
 import {MODAL_DATA} from './util/modal-data';
 import {ModalRef} from './util/modal-ref';
-import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
-import {getDecoratorConfig} from './configuration/configuration-decorators';
 
 @Injectable({providedIn: 'root'})
 export class ModalHostService {
@@ -34,19 +37,16 @@ export class ModalHostService {
   private readonly ariaHiddenValues = new Map<Element, string>();
   private readonly windowCmps: ComponentRef<ModalHostWindowComponent>[] = [];
   private readonly modalRefs: ModalRef[] = [];
-  private readonly document: Document;
   public readonly renderer: Renderer2;
 
-  constructor(
+  public constructor(
     private readonly injector: Injector,
     private readonly scrollBarAdjust: ScrollBarAdjustService,
     private readonly applicationRef: ApplicationRef,
-    @Inject(DOCUMENT) document: any,
+    @Inject(DOCUMENT) private readonly document: Document,
     @Inject(MODAL_CONFIG) private readonly moduleConfig: ModalConfig,
     rendererFactory: RendererFactory2
   ) {
-    // Workaround for https://github.com/angular/angular/issues/20351
-    this.document = document;
     this.renderer = rendererFactory.createRenderer(null, null);
 
     this.activeWindowCmptHasChanged.pipe(filter(() => this.windowCmps.length > 0)).subscribe(() => {
@@ -57,7 +57,7 @@ export class ModalHostService {
     });
   }
 
-  public open<R = any>(
+  public open<R = unknown>(
     moduleCFR: ComponentFactoryResolver,
     moduleInjector: Injector,
     content: ModalContent,
@@ -119,7 +119,7 @@ export class ModalHostService {
       }
     });
 
-    return modalRef;
+    return modalRef as ModalRef<R>;
   }
 
   public dismissAll(): void {
@@ -142,11 +142,12 @@ export class ModalHostService {
     } else if (content instanceof TemplateRef) {
       return this.createContentRefFromTemplateRef(content, modalRef, config);
     } else {
-      return this.createContentRefFromComponent(moduleCFR, moduleInjector, content as Type<any>, modalRef, config);
+      return this.createContentRefFromComponent(moduleCFR, moduleInjector,
+        content as Type<unknown>, modalRef as ModalRef<Type<unknown>>, config);
     }
   }
 
-  private createContentRefFromTemplateRef(content: TemplateRef<any>, modalRef: ModalRef, config: ModalConfig): ViewRef {
+  private createContentRefFromTemplateRef(content: TemplateRef<unknown>, modalRef: ModalRef, config: ModalConfig): ViewRef {
     const context = {
       $implicit: config.data,
       dismiss: () => modalRef.dismiss()
@@ -158,8 +159,8 @@ export class ModalHostService {
   private createContentRefFromComponent(
     moduleCFR: ComponentFactoryResolver,
     moduleInjector: Injector,
-    content: Type<any>,
-    modalRef: ModalRef<Type<any>>,
+    content: Type<unknown>,
+    modalRef: ModalRef<Type<unknown>>,
     {data: modalData, ...modalConfig}: ModalConfig
   ): ViewRef {
     const cmpFactory = moduleCFR.resolveComponentFactory(content);
@@ -267,15 +268,21 @@ export class ModalHostService {
     windowCmpRef.onDestroy(unregisterWindowCmp);
   }
 
-  private applyComponentConfig<T extends OnChanges>(instance: T, config: any, properties: (keyof T)[]): void {
+  private applyComponentConfig<T extends OnChanges & Partial<ModalConfig>>(
+    instance: T,
+    config: ModalConfig,
+    properties: (keyof T)[]
+  ): void {
     const changes: SimpleChanges = {};
 
     // Apply config elements to instance
     properties.forEach(property => {
-      const value = config[property];
-      if (value != null) {
-        changes[property as string] = new SimpleChange(instance[property], value, false);
-        instance[property] = value;
+      if (config.hasOwnProperty(property)) {
+        const value = config[property as keyof ModalConfig];
+        if (value != null) {
+          changes[property as string] = new SimpleChange(instance[property], value, false);
+          instance[property] = value as T[keyof T];
+        }
       }
     });
 

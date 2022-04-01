@@ -30,6 +30,6 @@ jobs:
         run: npx ng build modals
 
       - name: 'Publish package'
-        run: yarn publish dist/modals --new-version "${GITHUB_REF:11}" --no-git-tag-version
+        run: yarn publish dist/modals --new-version $GITHUB_REF_NAME --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

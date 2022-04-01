@@ -1,18 +1,18 @@
 import {CommonModule} from '@angular/common';
 import {ModuleWithProviders, NgModule, ValueProvider} from '@angular/core';
 
-import {ConfirmModal} from './components/confirm/confirm.modal';
-import {ModalBackdropComponent} from './components/modal-backdrop/modal-backdrop.component';
-import {ModalHostWindowComponent} from './components/modal-host-window/modal-host-window.component';
-import {Modals} from './modals.service';
-import {ModalHostService} from './modal-host.service';
-import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
-import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, RootModalConfig} from './configuration/modal-config';
 import {AutoFocusDirective} from './components/auto-focus.directive';
+import {ConfirmModal} from './components/confirm/confirm.modal';
 import {DismissDirective} from './components/dismiss.directive';
+import {ModalBackdropComponent} from './components/modal-backdrop/modal-backdrop.component';
+import { ModalFormDirective } from './components/modal-form.directive';
+import {ModalHostWindowComponent} from './components/modal-host-window/modal-host-window.component';
 import {ResolveDirective} from './components/resolve.directive';
 import {ShadeModal} from './components/shade/shade.modal';
-import { ModalFormDirective } from './components/modal-form.directive';
+import {DEFAULT_MODAL_CONFIG, MODAL_CONFIG, RootModalConfig} from './configuration/modal-config';
+import {ModalHostService} from './modal-host.service';
+import {Modals} from './modals.service';
+import {ScrollBarAdjustService} from './scroll-bar-adjust.service';
 
 @NgModule({
   imports: [CommonModule],

@@ -8,14 +8,11 @@ export type CompensationReverter = () => void;
 @Injectable({providedIn: 'root'})
 export class ScrollBarAdjustService {
   private readonly renderer: Renderer2;
-  private readonly document: Document;
 
-  constructor(
-    @Inject(DOCUMENT) document: any,
+  public constructor(
+    @Inject(DOCUMENT) private readonly document: Document,
     rendererFactory: RendererFactory2
   ) {
-    // Workaround for https://github.com/angular/angular/issues/20351
-    this.document = document;
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 

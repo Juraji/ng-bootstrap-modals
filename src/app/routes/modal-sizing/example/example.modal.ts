@@ -6,12 +6,12 @@ import {MODAL_CONFIG, ModalConfig} from '@juraji/ng-bootstrap-modals';
 })
 export class ExampleModal implements OnInit {
 
-  constructor(
+  public constructor(
     @Inject(MODAL_CONFIG) public readonly config: ModalConfig,
   ) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

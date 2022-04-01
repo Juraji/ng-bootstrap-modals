@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import {Component, OnInit} from '@angular/core';
 import {Modals, ModalSize} from '@juraji/ng-bootstrap-modals';
+
 import {ExampleModal} from './example/example.modal';
 
 @Component({
@@ -7,20 +9,20 @@ import {ExampleModal} from './example/example.modal';
 })
 export class ModalSizingPage implements OnInit {
 
-  readonly examples: ExampleCodeMap[] = [
+  public readonly examples: ExampleCodeMap[] = [
     {file: 'example.component.ts', contents: require(`!raw-loader!src/app/code/modal-sizing/example.component.ts.txt`).default},
     {file: 'app.module.ts', contents: require(`!raw-loader!src/app/code/app.module.ts.txt`).default},
   ];
 
-  constructor(
+  public constructor(
     private readonly modals: Modals,
   ) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  onSizedModal(size: ModalSize) {
+  public onSizedModal(size: ModalSize) {
     this.modals.open(ExampleModal, {size});
   }
 

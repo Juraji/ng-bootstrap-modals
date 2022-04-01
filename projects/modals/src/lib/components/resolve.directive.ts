@@ -1,4 +1,5 @@
 import {Directive, HostListener, Input} from '@angular/core';
+
 import {ModalRef} from '../util/modal-ref';
 
 @Directive({
@@ -7,13 +8,13 @@ import {ModalRef} from '../util/modal-ref';
 export class ResolveDirective {
 
   @Input()
-  modalResolve: any = null;
+  public modalResolve: unknown = null;
 
-  constructor(private readonly modalRef: ModalRef) {
+  public constructor(private readonly modalRef: ModalRef) {
   }
 
   @HostListener('click')
-  onHostClick() {
+  public onHostClick() {
     this.modalRef.resolve(this.modalResolve);
   }
 

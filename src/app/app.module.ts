@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ModalsModule} from '@juraji/ng-bootstrap-modals';
+import {MarkdownModule} from 'ngx-markdown';
 
+import {ExampleCodeModule} from './@components/example-code';
+import {MainNavbarModule} from './@components/main-navbar';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {ModalsModule} from '@juraji/ng-bootstrap-modals';
-import {MainNavbarModule} from './@components/main-navbar';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ExampleCodeModule} from './@components/example-code';
-import {MarkdownModule} from 'ngx-markdown';
 
 @NgModule({
   declarations: [

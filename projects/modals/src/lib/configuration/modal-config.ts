@@ -53,7 +53,7 @@ export interface RootModalConfig {
 /**
  * Individual modal configuration
  */
-export interface ModalConfig extends RootModalConfig {
+export interface ModalConfig<T = unknown> extends RootModalConfig {
   // Modal data
-  data?: any;
+  data?: T;
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ModalFullScreen, ModalKeyboardDisabled} from '@juraji/ng-bootstrap-modals';
 
 @ModalFullScreen()
@@ -6,12 +6,5 @@ import {ModalFullScreen, ModalKeyboardDisabled} from '@juraji/ng-bootstrap-modal
 @Component({
   templateUrl: './example.modal.html'
 })
-export class ExampleModal implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
+export class ExampleModal {
 }

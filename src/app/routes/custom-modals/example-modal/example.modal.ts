@@ -14,15 +14,15 @@ export interface ExampleModalResult {
   templateUrl: './example.modal.html',
 })
 export class ExampleModal {
-  readonly directiveResolveValue: ExampleModalResult = {result: 'Resolved via directive!'};
+  public readonly directiveResolveValue: ExampleModalResult = {result: 'Resolved via directive!'};
 
-  constructor(
+  public constructor(
     private readonly modalRef: ModalRef<ExampleModalResult>,
-    @Inject(MODAL_DATA) readonly data: ExampleModalData
+    @Inject(MODAL_DATA) public readonly data: ExampleModalData
   ) {
   }
 
-  onCustomResolve() {
+  public onCustomResolve() {
     this.modalRef.resolve({result: 'Resolved via modalRef!'});
   }
 
