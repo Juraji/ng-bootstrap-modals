@@ -2,9 +2,9 @@
   "name": "@juraji/ng-bootstrap-modals",
   "version": "0.0.0",
   "peerDependencies": {
-    "@angular/common": "11.x.x",
-    "@angular/core": "11.x.x",
-    "@angular/animations": "11.x.x",
+    "@angular/common": "13.x.x",
+    "@angular/core": "13.x.x",
+    "@angular/animations": "13.x.x",
     "bootstrap": ">5.0.0"
   },
   "dependencies": {

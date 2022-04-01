@@ -26,7 +26,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: 'Build modals library'
-        run: npx ng build modals --prod
+        run: npx ng build modals
 
       - name: 'Build and deploy demo app'
         env:
