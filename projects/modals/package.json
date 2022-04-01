@@ -5,7 +5,7 @@
     "@angular/common": "11.x.x",
     "@angular/core": "11.x.x",
     "@angular/animations": "11.x.x",
-    "bootstrap": ">4.6.0"
+    "bootstrap": ">5.0.0"
   },
   "dependencies": {
     "tslib": "2.x.x"
