@@ -17,7 +17,7 @@ const AUTO_FOCUS_ELEMENTS_SELECTOR =
 export class AutoFocusDirective implements AfterViewInit {
 
   @Input()
-  public selectText = false;
+  public selectText = true;
 
   public constructor(
     private readonly elementRef: ElementRef,
@@ -30,7 +30,7 @@ export class AutoFocusDirective implements AfterViewInit {
     if (typeof e.focus === 'function') {
       e.focus();
 
-      if (typeof e.select === 'function') {
+      if (this.selectText && typeof e.select === 'function') {
         e.select();
       }
     }

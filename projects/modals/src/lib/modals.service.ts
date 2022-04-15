@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 
 import {ConfirmModalData} from './components/confirm/confirm';
 import {ConfirmModal} from './components/confirm/confirm.modal';
-import {ShadeModalData, ShadeRef} from './components/shade/shade';
+import {FractionMode, ShadeModalData, ShadeRef} from './components/shade/shade';
 import {ShadeModal} from './components/shade/shade.modal';
 import {ModalConfig} from './configuration/modal-config';
 import {ModalHostService} from './modal-host.service';
@@ -60,10 +60,16 @@ export class Modals {
    * @param progress Optional observable, emitting task progress from 0 until 100
    *                 When undefined, emitting undefined or emitting a out-of-range number,
    *                 the modal will display an indefinite progressbar
+   * @param progressMode When {@param progress} is supplied, this will tell the renderer
+   *                     whether to expect PERCENT (0..100) or a FRACTION (0..1). Defaults to PERCENT
    */
-  public shade(message: string | Observable<string>, progress?: Observable<number>): ShadeRef {
+  public shade(
+    message: string | Observable<string>,
+    progress?: Observable<number>,
+    progressMode: FractionMode = 'PERCENT'
+  ): ShadeRef {
     return this.open<never>(ShadeModal, {
-      data: {message, progress} as ShadeModalData,
+      data: {message, progress, progressMode} as ShadeModalData,
       scrollable: false,
       size: 'sm',
       centered: true,
